@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7df32788-10ab-4b0f-8d3a-a0344ac22db7" name="Default Changelist" comment="" />
+    <list default="true" id="7df32788-10ab-4b0f-8d3a-a0344ac22db7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,6 +28,7 @@
     <option name="version" value="1" />
   </component>
   <component name="ProjectId" id="1azVK1SNovFul5ZczFRrbDEe8KI" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -31,6 +36,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Lab5" />
   </component>
   <component name="RunManager">
@@ -58,9 +64,25 @@
       <option name="presentableId" value="Default" />
       <updated>1587738341869</updated>
     </task>
+    <task id="LOCAL-00001" summary="First Commit">
+      <created>1587739076138</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1587739076138</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="First Commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="First Commit" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="500" y="44" key="CommitChangelistDialog2" timestamp="1587739075183">
+      <screen x="0" y="0" width="1676" height="902" />
+    </state>
+    <state x="500" y="44" key="CommitChangelistDialog2/0.0.1676.902@0.0.1676.902" timestamp="1587739075183" />
     <state width="1632" height="236" key="GridCell.Tab.0.bottom" timestamp="1587738906291">
       <screen x="0" y="0" width="1676" height="902" />
     </state>
@@ -77,5 +99,9 @@
       <screen x="0" y="0" width="1676" height="902" />
     </state>
     <state width="1632" height="236" key="GridCell.Tab.0.right/0.0.1676.902@0.0.1676.902" timestamp="1587738906291" />
+    <state x="536" y="48" width="602" height="804" key="find.popup" timestamp="1587739236597">
+      <screen x="0" y="0" width="1676" height="902" />
+    </state>
+    <state x="536" y="48" width="602" height="804" key="find.popup/0.0.1676.902@0.0.1676.902" timestamp="1587739236597" />
   </component>
 </project>
