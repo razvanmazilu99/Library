@@ -13,6 +13,7 @@ import java.nio.file.Path;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
+import java.util.Objects;
 
 public class UserService {
 
@@ -43,7 +44,10 @@ public class UserService {
     }
 
     private static void checkUserDoesNotAlreadyExist(String username) throws UserAlreadyExistsException {
-
+        for (User user : users) {
+            if (Objects.equals(username, user.getUsername()))
+                throw new UserAlreadyExistsException(username);
+        }
     }
 
     private static void persistUsers() {
