@@ -1,11 +1,10 @@
+import Register.services.UserService;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-
-import java.io.IOException;
 
 public class Main extends Application {
 
@@ -14,7 +13,9 @@ public class Main extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) throws IOException {
+    public void start(Stage primaryStage) throws Exception {
+
+        UserService.loadUsersFromFile();
 
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("Register/Create Account Page.fxml"));
         Scene scene = new Scene(root);
@@ -22,4 +23,5 @@ public class Main extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
+
 }
