@@ -1,21 +1,42 @@
 package Register.controllers;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 
-public class CreateAccountController {
+public class ClientRegController {
+
+    @FXML
+    private TextField name;
+    @FXML
+    private TextField surname;
+    @FXML
+    private TextField address;
+    @FXML
+    private TextField email;
+    @FXML
+    private TextField phoneNumber;
+    @FXML
+    private TextField username;
+    @FXML
+    private PasswordField password;
 
     @FXML
     private Button close;
+
+    @FXML
+    private Label registrationMessage;
 
     @FXML
     private void handleClose() {
@@ -27,12 +48,7 @@ public class CreateAccountController {
     @FXML
     public void handleBack(javafx.event.ActionEvent event) throws IOException {
 
-    }
-
-    @FXML
-    public void AccountClient(ActionEvent event) throws IOException {
-
-        URL url = new File("src/main/resources/Register/Client Registration Page.fxml").toURI().toURL();
+        URL url = new File("src/main/resources/Register/Create Account Page.fxml").toURI().toURL();
         Parent home = FXMLLoader.load(url);
         Scene scene = new Scene(home);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -41,8 +57,8 @@ public class CreateAccountController {
     }
 
     @FXML
-    public void AccountManager(ActionEvent event) throws IOException {
-
+    public void ClientRegister(javafx.event.ActionEvent event) throws IOException {
+        
     }
 
 }
