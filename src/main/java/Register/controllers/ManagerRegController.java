@@ -1,5 +1,7 @@
 package Register.controllers;
 
+import Register.exceptions.UserAlreadyExistsException;
+import Register.services.UserService;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -57,6 +59,17 @@ public class ManagerRegController {
     @FXML
     public void ManagerRegister(javafx.event.ActionEvent event) throws IOException {
 
+        try {
+            UserService.addUserManager(libraryName.getText(), address.getText(), email.getText(), phoneNumber.getText(), username.getText(), password.getText());
+            URL url = new File("src/main/resources/Register/Manager Registration Page.fxml").toURI().toURL(); // Login pag
+            Parent home = FXMLLoader.load(url);
+            Scene scene = new Scene(home);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (UserAlreadyExistsException e) {
+            registrationMessage.setText(e.getMessage());
+        }
     }
 
 }

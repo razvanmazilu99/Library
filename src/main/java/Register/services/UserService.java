@@ -35,6 +35,12 @@ public class UserService {
         persistUsers();
     }
 
+    public static void addUserManager(String libraryName, String address, String email, String phoneNumber, String username, String password) throws UserAlreadyExistsException {
+        checkUserDoesNotAlreadyExist(username);
+        users.add(new User(libraryName, address, email, phoneNumber, username, password));
+        persistUsers();
+    }
+
     private static void checkUserDoesNotAlreadyExist(String username) throws UserAlreadyExistsException {
 
     }
