@@ -62,7 +62,7 @@ public class ClientRegController {
 
         try {
             UserService.addUserClient(name.getText(), surname.getText(), address.getText(), email.getText(), phoneNumber.getText(), username.getText(), password.getText());
-            URL url = new File("src/main/resources/Register/Client Registration Page.fxml").toURI().toURL(); // Login pag
+            URL url = new File("src/main/resources/Login/Login.fxml").toURI().toURL();
             Parent home = FXMLLoader.load(url);
             Scene scene = new Scene(home);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
