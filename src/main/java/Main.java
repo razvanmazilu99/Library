@@ -17,7 +17,7 @@ public class Main extends Application {
 
         UserService.loadUsersFromFile();
 
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("Register/Create Account Page.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("Login/Login.fxml"));
         Scene scene = new Scene(root);
         primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.setScene(scene);
