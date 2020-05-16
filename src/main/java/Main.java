@@ -1,3 +1,4 @@
+import Login.services.LoginService;
 import Register.services.UserService;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -16,8 +17,9 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
 
         UserService.loadUsersFromFile();
+        LoginService.loadUsersFromFile();
 
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("Register/Create Account Page.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("Login/Login.fxml"));
         Scene scene = new Scene(root);
         primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.setScene(scene);
