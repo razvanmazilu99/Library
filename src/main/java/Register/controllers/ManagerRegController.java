@@ -1,5 +1,6 @@
 package Register.controllers;
 
+import Register.exceptions.EmptyField;
 import Register.exceptions.UserAlreadyExistsException;
 import Register.services.UserService;
 import javafx.fxml.FXML;
@@ -38,6 +39,9 @@ public class ManagerRegController {
     private Label registrationMessage;
 
     @FXML
+    private Label empty;
+
+    @FXML
     private void handleClose() {
 
         Stage stage = (Stage) close.getScene().getWindow();
@@ -60,14 +64,18 @@ public class ManagerRegController {
 
         try {
             UserService.addUserManager(libraryName.getText(), address.getText(), email.getText(), phoneNumber.getText(), username.getText(), password.getText());
-            URL url = new File("src/main/resources/Register/Manager Registration Page.fxml").toURI().toURL(); // Login pag
+            URL url = new File("src/main/resources/Login/Login.fxml").toURI().toURL();
             Parent home = FXMLLoader.load(url);
             Scene scene = new Scene(home);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(scene);
             stage.show();
         } catch (UserAlreadyExistsException e) {
+            empty.setText(null);
             registrationMessage.setText(e.getMessage());
+        } catch (EmptyField e) {
+            registrationMessage.setText(null);
+            empty.setText(e.getMessage());
         }
     }
 
