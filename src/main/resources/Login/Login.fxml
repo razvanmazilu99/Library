@@ -6,16 +6,16 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Login.Controller.ControllerLogin">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Login.controllers.ControllerLogin">
    <children>
       <AnchorPane layoutX="535.0" layoutY="100.0" prefHeight="300.0" prefWidth="300.0">
          <children>
-            <PasswordField layoutX="37.0" layoutY="136.0" prefHeight="20.0" prefWidth="230.0" promptText="Password" style="-fx-border-color: #655; -fx-border-width: 0.5px 0.5 2px 0.5px;" />
-            <TextField layoutX="36.0" layoutY="77.0" prefHeight="20.0" prefWidth="230.0" promptText="Username" style="-fx-border-color: #655; -fx-border-width: 0.5px 0.5px 2px 0.5px;">
+            <TextField fx:id="username" layoutX="36.0" layoutY="77.0" prefHeight="20.0" prefWidth="230.0" promptText="Username" style="-fx-border-color: #655; -fx-border-width: 0.5px 0.5px 2px 0.5px;">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets></TextField>
-            <Button fx:id="button1" layoutX="37.0" layoutY="201.0" mnemonicParsing="false" onMouseClicked="#handleButtonAction" prefHeight="30.0" prefWidth="230.0" style="-fx-background-color: #655;" text="Login" textFill="WHITE">
+            <PasswordField fx:id="password" layoutX="37.0" layoutY="136.0" prefHeight="20.0" prefWidth="230.0" promptText="Password" style="-fx-border-color: #655; -fx-border-width: 0.5px 0.5 2px 0.5px;" />
+            <Button layoutX="37.0" layoutY="201.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="30.0" prefWidth="230.0" style="-fx-background-color: #655;" text="Login" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
@@ -25,7 +25,7 @@
                   <Font name="System Bold" size="24.0" />
                </font>
             </Label>
-            <Hyperlink layoutX="106.0" layoutY="244.0" onAction="#handleCreateAccount" text="Create account" textFill="#0e0701" />
+            <Hyperlink layoutX="104.0" layoutY="244.0" onAction="#handleCreateAccount" text="Create account" textFill="#0e0701" />
          </children>
       </AnchorPane>
       <ImageView fitHeight="500.0" fitWidth="524.0">
@@ -43,5 +43,20 @@
             <Font name="Arial Black" size="12.0" />
          </font>
       </Button>
+      <Label fx:id="usernotexist" layoutX="621.0" layoutY="416.0" textFill="#970a0a">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="incorrectpass" layoutX="623.0" layoutY="416.0" textFill="#970a0a">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="empty" layoutX="649.0" layoutY="416.0" textFill="#970a0a">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
