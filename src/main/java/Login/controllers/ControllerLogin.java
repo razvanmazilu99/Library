@@ -1,0 +1,85 @@
+package Login.controllers;
+
+import Login.exceptions.EmptyField;
+import Login.exceptions.IncorrectPassword;
+import Login.exceptions.UserDoesNotExistException;
+import Register.exceptions.CouldNotWriteUsersException;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+import static Login.services.LoginService.verifyLogin;
+
+public class ControllerLogin {
+
+    @FXML
+    private Button button;
+
+    @FXML
+    private Label usernotexist;
+
+    @FXML
+    private Label incorrectpass;
+
+    @FXML
+    private Label empty;
+
+    @FXML
+    private TextField username;
+
+    @FXML
+    private PasswordField password;
+
+    @FXML
+    private void handleClose() {
+        Stage stage = (Stage) button.getScene().getWindow();
+        stage.close();
+    }
+
+    @FXML
+    public void handleCreateAccount(javafx.event.ActionEvent event) throws IOException {
+        URL url = new File("src/main/resources/Register/Create Account Page.fxml").toURI().toURL();
+        Parent home = FXMLLoader.load(url);
+        Scene scene = new Scene(home);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    public void handleButtonAction(ActionEvent event) throws IOException {
+
+        try {
+            verifyLogin(username.getText(), password.getText());
+            URL url = new File("src/main/resources/Login/Login.fxml").toURI().toURL();
+            Parent home = FXMLLoader.load(url);
+            Scene scene = new Scene(home);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (EmptyField e) {
+            usernotexist.setText(null);
+            incorrectpass.setText(null);
+            empty.setText(e.getMessage());
+        } catch (UserDoesNotExistException e) {
+            incorrectpass.setText(null);
+            empty.setText(null);
+            usernotexist.setText(e.getMessage());
+        } catch (IncorrectPassword e) {
+            usernotexist.setText(null);
+            empty.setText(null);
+            incorrectpass.setText(e.getMessage());
+        }
+    }
+}
