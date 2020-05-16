@@ -17,8 +17,8 @@ import java.util.Objects;
 
 public class UserService {
 
-    private static List<User> users;
-    private static final Path USERS_PATH = FileSystemService.getPathToFile("config", "users.json");
+    public static List<User> users;
+    public static final Path USERS_PATH = FileSystemService.getPathToFile("config", "users.json");
 
     public static void loadUsersFromFile() throws IOException {
 
@@ -59,7 +59,7 @@ public class UserService {
         }
     }
 
-    private static String encodePassword(String salt, String password) {
+    public static String encodePassword(String salt, String password) {
         MessageDigest md = getMessageDigest();
         md.update(salt.getBytes(StandardCharsets.UTF_8));
 
