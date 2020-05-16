@@ -1,5 +1,6 @@
 package Register.controllers;
 
+import Register.exceptions.EmptyField;
 import Register.exceptions.UserAlreadyExistsException;
 import Register.services.UserService;
 import javafx.fxml.FXML;
@@ -40,6 +41,9 @@ public class ClientRegController {
     private Label registrationMessage;
 
     @FXML
+    private Label empty;
+
+    @FXML
     private void handleClose() {
 
         Stage stage = (Stage) close.getScene().getWindow();
@@ -69,8 +73,11 @@ public class ClientRegController {
             stage.setScene(scene);
             stage.show();
         } catch (UserAlreadyExistsException e) {
+            empty.setText(null);
             registrationMessage.setText(e.getMessage());
+        } catch (EmptyField e) {
+            registrationMessage.setText(null);
+            empty.setText(e.getMessage());
         }
     }
-
 }
