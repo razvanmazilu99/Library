@@ -49,7 +49,7 @@ public class UserService {
     private static void checkUserDoesNotAlreadyExist(String username) throws UserAlreadyExistsException {
         for (User user : users) {
             if (Objects.equals(username, user.getUsername()))
-                throw new UserAlreadyExistsException(username);
+                throw new UserAlreadyExistsException();
         }
     }
 
