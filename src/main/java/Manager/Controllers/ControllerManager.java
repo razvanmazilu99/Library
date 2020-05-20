@@ -1,4 +1,4 @@
-package Manager;
+package Manager.Controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -10,8 +10,17 @@ public class ControllerManager {
     private Button close;
 
     @FXML
+    private Button addButton;
+
+    @FXML
     private void handleClose() {
         Stage stage = (Stage) close.getScene().getWindow();
         stage.close();
     }
+
+    @FXML
+    private void handleAdd() {
+
+    }
+
 }
