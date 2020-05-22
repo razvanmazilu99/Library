@@ -48,7 +48,7 @@
                   <Font name="Freestyle Script" size="53.0" />
                </font>
             </Label>
-            <Button fx:id="addButton" layoutX="922.0" layoutY="15.0" mnemonicParsing="false" onAction="#handleAdd" prefWidth="110.0" style="-fx-background-color: #656; -fx-border-width: 1.5px 1.5px 1.5px 1.5px; -fx-border-color: #ffff;" text="Add book" textFill="WHITE">
+            <Button layoutX="922.0" layoutY="15.0" mnemonicParsing="false" onAction="#handleAddBook" prefWidth="110.0" style="-fx-background-color: #656; -fx-border-width: 1.5px 1.5px 1.5px 1.5px; -fx-border-color: #ffff;" text="Add book" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>

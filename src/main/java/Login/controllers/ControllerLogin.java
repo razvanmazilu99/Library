@@ -43,6 +43,9 @@ public class ControllerLogin {
     private PasswordField password;
 
     @FXML
+    private Button login;
+
+    @FXML
     private void handleClose() {
         Stage stage = (Stage) button.getScene().getWindow();
         stage.close();
@@ -58,18 +61,23 @@ public class ControllerLogin {
         stage.show();
     }
 
+    public static String saveUser;
+
     @FXML
     public void handleButtonAction(ActionEvent event) throws IOException {
 
         try {
             verifyLogin(username.getText(), password.getText());
+            saveUser = username.getText();
             URL url = new File("src/main/resources/Manager/ManagerPage.fxml").toURI().toURL();
             Parent home = FXMLLoader.load(url);
+            Stage stage = (Stage) login.getScene().getWindow();
+            stage.close();
             Scene scene = new Scene(home);
-            Stage stage = new Stage(); // = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.initStyle(StageStyle.UNDECORATED);
-            stage.setScene(scene);
-            stage.show();
+            Stage stage1 = new Stage(); // = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage1.initStyle(StageStyle.UNDECORATED);
+            stage1.setScene(scene);
+            stage1.show();
 
         } catch (EmptyField e) {
             usernotexist.setText(null);
