@@ -15,11 +15,13 @@ import javafx.scene.control.*;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import org.apache.commons.io.FileUtils;
 import org.w3c.dom.Node;
 
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Base64;
 import java.util.List;
 
 public class ControllerAdd {
@@ -85,10 +87,19 @@ public class ControllerAdd {
     @FXML
     private void handleSubmit(ActionEvent event) throws IOException {
 
+        String encodedString1 = null, encodedString2 = null;
         try {
             List<File> element1 = listView.getItems();
             List<File> element2 = listView1.getItems();
-            AddJSON.addBook(title.getText(), author.getText(), genre.getText(), details.getText(), element1.size() != 0 ? element1.get(0) : null,  element2.size() != 0 ? element2.get(0) : null);
+            if(element1.size() != 0) {
+                byte[] fileContent1 = FileUtils.readFileToByteArray(new File(element1.get(0).toURI()));
+                encodedString1 = Base64.getEncoder().encodeToString(fileContent1);
+            }
+            if(element2.size() != 0) {
+                byte[] fileContent2 = FileUtils.readFileToByteArray(new File(element2.get(0).toURI()));
+                encodedString2 = Base64.getEncoder().encodeToString(fileContent2);
+            }
+            AddJSON.addBook(title.getText(), author.getText(), genre.getText(), details.getText(), encodedString1, encodedString2);
             Stage stage = (Stage) submit.getScene().getWindow();
             stage.close();
         } catch (Manager.exceptions.EmptyField e) {

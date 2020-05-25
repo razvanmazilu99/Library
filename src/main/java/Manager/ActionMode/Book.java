@@ -11,15 +11,15 @@ public class Book {
     private String author;
     private String genre;
     private String details;
-    private File image;
-    private File pdf;
+    private String image;
+    private String pdf;
     private String user;
 
     public Book() {
 
     }
 
-    public Book(String title, String author, String genre, String details, File image, File pdf) {
+    public Book(String title, String author, String genre, String details, String image, String pdf) {
         this.title = title;
         this.author = author;
         this.genre = genre;
@@ -69,19 +69,19 @@ public class Book {
         this.details = details;
     }
 
-    public File getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(File image) {
+    public void setImage(String image) {
         this.image = image;
     }
 
-    public File getPdf() {
+    public String getPdf() {
         return pdf;
     }
 
-    public void setPdf(File pdf) {
+    public void setPdf(String pdf) {
         this.pdf = pdf;
     }
 
