@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Manager.ControllerManager">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Manager.Controllers.ControllerManager">
    <children>
       <Pane prefHeight="60.0" prefWidth="1401.0" style="-fx-background-color: #656;">
          <children>
@@ -14,12 +14,12 @@
                   <Font name="Harlow Solid Italic" size="28.0" />
                </font>
             </Label>
-            <Button layoutX="922.0" layoutY="15.0" mnemonicParsing="false" prefWidth="110.0" style="-fx-background-color: #656; -fx-border-width: 1.5px 1.5px 1.5px 1.5px; -fx-border-color: #ffff;" text="My books" textFill="WHITE">
+            <Button layoutX="922.0" layoutY="14.0" mnemonicParsing="false" prefWidth="110.0" style="-fx-background-color: #656; -fx-border-width: 1.5px 1.5px 1.5px 1.5px; -fx-border-color: #ffff;" text="My books" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <Button layoutX="1062.0" layoutY="14.0" mnemonicParsing="false" prefWidth="110.0" style="-fx-background-color: #656; -fx-border-width: 1.5px 1.5px 1.5px 1.5px; -fx-border-color: #ffff;" text="My requests" textFill="WHITE">
+            <Button layoutX="1061.0" layoutY="14.0" mnemonicParsing="false" prefWidth="112.0" style="-fx-background-color: #656; -fx-border-width: 1.5px 1.5px 1.5px 1.5px; -fx-border-color: #ffff;" text="My requests" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -48,12 +48,12 @@
                   <Font name="Freestyle Script" size="53.0" />
                </font>
             </Label>
-            <Button layoutX="922.0" layoutY="15.0" mnemonicParsing="false" prefWidth="110.0" style="-fx-background-color: #656; -fx-border-width: 1.5px 1.5px 1.5px 1.5px; -fx-border-color: #ffff;" text="Add book" textFill="WHITE">
+            <Button layoutX="922.0" layoutY="15.0" mnemonicParsing="false" onAction="#handleAddBook" prefWidth="110.0" style="-fx-background-color: #656; -fx-border-width: 1.5px 1.5px 1.5px 1.5px; -fx-border-color: #ffff;" text="Add book" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <Button layoutX="1062.0" layoutY="15.0" mnemonicParsing="false" prefWidth="110.0" style="-fx-background-color: #656; -fx-border-width: 1.5px 1.5px 1.5px 1.5px; -fx-border-color: #ffff;" text="Edit Book" textFill="WHITE">
+            <Button layoutX="1061.0" layoutY="14.0" mnemonicParsing="false" prefWidth="112.0" style="-fx-background-color: #656; -fx-border-width: 1.5px 1.5px 1.5px 1.5px; -fx-border-color: #ffff;" text="Edit Book" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>

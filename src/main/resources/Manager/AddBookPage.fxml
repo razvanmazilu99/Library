@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Manager.Controllers.ControllerAdd">
+   <children>
+      <TextField fx:id="title" layoutX="439.0" layoutY="68.0" prefHeight="28.0" prefWidth="391.0" promptText="Title" style="-fx-border-color: #655; -fx-border-width: 0.5px 0.5px 2px 0.5;" />
+      <TextField fx:id="author" layoutX="439.0" layoutY="116.0" prefHeight="28.0" prefWidth="391.0" promptText="Author" style="-fx-border-color: #655; -fx-border-width: 0.5px 0.5px 2px 0.5;" />
+      <TextField fx:id="genre" layoutX="439.0" layoutY="165.0" prefHeight="28.0" prefWidth="391.0" promptText="Genre" style="-fx-border-color: #655; -fx-border-width: 0.5px 0.5px 2px 0.5;" />
+      <TextArea fx:id="details" layoutX="439.0" layoutY="213.0" prefHeight="79.0" prefWidth="393.0" promptText="Details" style="-fx-background-color: #655;" />
+      <ImageView fitHeight="500.0" fitWidth="424.0" opacity="0.9">
+         <image>
+            <Image url="@Add.jpg" />
+         </image>
+         <effect>
+            <InnerShadow />
+         </effect>
+      </ImageView>
+      <Label layoutX="23.0" layoutY="8.0" text="LibraryApp" textFill="#fffdfd">
+         <font>
+            <Font name="Harlow Solid Italic" size="38.0" />
+         </font>
+      </Label>
+      <Label layoutX="580.0" layoutY="22.0" text="Add new book" textFill="#665555">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Button fx:id="close" layoutX="816.0" layoutY="8.0" mnemonicParsing="false" onAction="#handleClose" style="-fx-background-color: #655;" text="X" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.218181610107422" />
+         </font></Button>
+      <Button fx:id="submit" layoutX="746.0" layoutY="451.0" mnemonicParsing="false" onAction="#handleSubmit" prefHeight="30.0" prefWidth="86.0" style="-fx-background-color: #655;" text="Submit" textFill="#fffdfd">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button fx:id="selectPicture" layoutX="454.0" layoutY="304.0" mnemonicParsing="false" onAction="#selectBookPicture" prefHeight="38.0" prefWidth="151.0" style="-fx-background-color: #655;" text="Add book cover" textFill="#fffdfd">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button fx:id="selectPdf" layoutX="666.0" layoutY="304.0" mnemonicParsing="false" onAction="#selectBookPdf" prefHeight="38.0" prefWidth="151.0" style="-fx-background-color: #655;" text="Add book PDF" textFill="#fffdfd">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <ListView fx:id="listView" layoutX="438.0" layoutY="354.0" prefHeight="44.0" prefWidth="394.0" style="-fx-border-color: #655; -fx-border-width: 0.5px 0.5px 2px 0.5px;" />
+      <ListView fx:id="listView1" layoutX="438.0" layoutY="398.0" prefHeight="44.0" prefWidth="394.0" style="-fx-border-color: #655; -fx-border-width: 0.5px 0.5px 2px 0.5px;" />
+      <Label fx:id="empty" layoutX="591.0" layoutY="459.0" prefHeight="25.0" prefWidth="86.0" textFill="#970a0a">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="bookAlreadyExist" layoutX="565.0" layoutY="459.0" prefHeight="25.0" prefWidth="140.0" textFill="#970a0a">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

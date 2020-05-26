@@ -1,4 +1,5 @@
 import Login.services.LoginService;
+import Manager.Services.AddJSON;
 import Register.services.UserService;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -18,6 +19,7 @@ public class Main extends Application {
 
         UserService.loadUsersFromFile();
         LoginService.loadUsersFromFile();
+        AddJSON.loadBooksFromFile();
 
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("Login/Login.fxml"));
         Scene scene = new Scene(root);
