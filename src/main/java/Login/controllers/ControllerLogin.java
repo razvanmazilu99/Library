@@ -15,6 +15,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -61,10 +63,11 @@ public class ControllerLogin {
 
         try {
             verifyLogin(username.getText(), password.getText());
-            URL url = new File("src/main/resources/Login/Login.fxml").toURI().toURL();
+            URL url = new File("src/main/resources/Manager/ManagerPage.fxml").toURI().toURL();
             Parent home = FXMLLoader.load(url);
             Scene scene = new Scene(home);
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Stage stage = new Stage(); // = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.initStyle(StageStyle.UNDECORATED);
             stage.setScene(scene);
             stage.show();
 
