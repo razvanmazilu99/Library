@@ -1,16 +1,8 @@
 package Manager.Controllers;
 
-import Login.controllers.ControllerLogin;
-import Manager.ActionMode.Book;
 import Manager.Services.AddJSON;
-import Manager.exceptions.BookAlreadyExistsException;
-import Register.exceptions.EmptyField;
-import Register.services.UserService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
