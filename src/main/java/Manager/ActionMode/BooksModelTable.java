@@ -7,6 +7,13 @@ public class BooksModelTable {
     private String information;
     private Button pdf;
 
+    public BooksModelTable(javafx.scene.image.ImageView image, Button openBook, Book book) {
+
+        picture = image;
+        information = book.getTitle() + '\n' + book.getAuthor() + '\n' + book.getGenre() + '\n' + book.getDetails();
+        pdf = openBook;
+    }
+
     public BooksModelTable(javafx.scene.image.ImageView image, Book book) {
 
         picture = image;

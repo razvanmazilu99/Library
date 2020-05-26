@@ -94,7 +94,26 @@ public class ControllerManager implements Initializable {
                     bookPDF.setPrefSize(150, 30);
                     bookCover.setFitHeight(150);
                     bookCover.setFitWidth(150);
-                    {
+                    if(b.getPdf() != null) {
+                        bookPDF.setText("Read Online");
+                        bookPDF.setPrefSize(150, 30);
+                        bookPDF.setOnAction(e -> {
+                            Desktop desktop = Desktop.getDesktop();
+                            try {
+                                byte[] pdf = Base64.getDecoder().decode(b.getPdf().getBytes());
+                                OutputStream fstream = new FileOutputStream("ReadOnline" + ".pdf");
+                                for (Byte p : pdf) {
+                                    fstream.write(p);
+                                }
+                                fstream.close();
+                                desktop.open(new File("ReadOnline" + ".pdf"));
+                            } catch (IOException ex) {
+                                ex.printStackTrace();
+                            }
+                        });
+                        arrayBook.add(new BooksModelTable(bookCover, bookPDF, b));
+                }
+                else {
                             arrayBook.add(new BooksModelTable(bookCover, b));
                     }
                 }
