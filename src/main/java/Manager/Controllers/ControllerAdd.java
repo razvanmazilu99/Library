@@ -1,25 +1,13 @@
 package Manager.Controllers;
 
-import Login.controllers.ControllerLogin;
-import Manager.ActionMode.Book;
 import Manager.Services.AddJSON;
-import Manager.exceptions.BookAlreadyExistsException;
-import Register.exceptions.EmptyField;
-import Register.services.UserService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-import org.w3c.dom.Node;
-
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 import java.util.List;
 
 public class ControllerAdd {
@@ -88,7 +76,7 @@ public class ControllerAdd {
         try {
             List<File> element1 = listView.getItems();
             List<File> element2 = listView1.getItems();
-            AddJSON.addBook(title.getText(), author.getText(), genre.getText(), details.getText(), element1.size() != 0 ? element1.get(0) : null,  element2.size() != 0 ? element2.get(0) : null);
+            AddJSON.addBook(title.getText(), author.getText(), genre.getText(), details.getText(), element1.size() >= 1  ? element1.get(0) : null,  element2.size() == 2 ? element2.get(0) : null);
             Stage stage = (Stage) submit.getScene().getWindow();
             stage.close();
         } catch (Manager.exceptions.EmptyField e) {
