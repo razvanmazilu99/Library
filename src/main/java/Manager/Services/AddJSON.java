@@ -32,7 +32,7 @@ public class AddJSON {
         books = objectMapper.readValue(BOOKS_PATH.toFile(), new TypeReference<List<Book>>() { });
     }
 
-    public static void addBook(String title, String author, String genre, String details, File image, File pdf) throws EmptyField, BookAlreadyExistsException {
+    public static void addBook(String title, String author, String genre, String details, String image, String pdf) throws EmptyField, BookAlreadyExistsException {
 
         checkEmptyField(title, author, genre, details, image, pdf);
         checkBookDoesNotAlreadyExist(title, author, ControllerLogin.saveUser);
@@ -49,7 +49,7 @@ public class AddJSON {
         }
     }
 
-    public static void checkEmptyField(String title, String author, String genre, String details, File image, File pdf) throws EmptyField {
+    public static void checkEmptyField(String title, String author, String genre, String details, String image, String pdf) throws EmptyField {
         if (title.equals("") || author.equals("") || genre.equals("") || details.equals("") || image == null)
             throw new EmptyField();
     }
@@ -61,3 +61,4 @@ public class AddJSON {
         }
     }
 }
+
