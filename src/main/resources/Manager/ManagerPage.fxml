@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
@@ -14,7 +15,7 @@
                   <Font name="Harlow Solid Italic" size="28.0" />
                </font>
             </Label>
-            <Button layoutX="922.0" layoutY="14.0" mnemonicParsing="false" prefWidth="110.0" style="-fx-background-color: #656; -fx-border-width: 1.5px 1.5px 1.5px 1.5px; -fx-border-color: #ffff;" text="My books" textFill="WHITE">
+            <Button layoutX="922.0" layoutY="14.0" mnemonicParsing="false" onAction="#BooksPage" prefWidth="110.0" style="-fx-background-color: #656; -fx-border-width: 1.5px 1.5px 1.5px 1.5px; -fx-border-color: #ffff;" text="My books" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -64,13 +65,20 @@
                </font>
             </Button>
          </children></Pane>
-      <VBox layoutX="249.0" layoutY="502.0" prefHeight="282.0" prefWidth="902.0">
+      <VBox layoutX="249.0" layoutY="502.0" prefHeight="282.0" prefWidth="900.0" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="249.0" AnchorPane.rightAnchor="249.0" AnchorPane.topAnchor="502.0">
          <children>
-            <TableView prefHeight="281.0" prefWidth="902.0">
-              <columns>
-                <TableColumn prefWidth="247.5635986328125" style="-fx-background-color: #fff;" />
-                  <TableColumn prefWidth="652.2180786132812" style="-fx-background-color: #ffff;" />
-              </columns>
+            <TableView fx:id="table" prefHeight="281.0" prefWidth="900.0" style="-fx-background-color: #ffff;" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="249.0" AnchorPane.rightAnchor="249.0" AnchorPane.topAnchor="502.0">
+               <columns>
+                  <TableColumn fx:id="picture" prefWidth="158.0" style="-fx-background-color: #ffff;" />
+                  <TableColumn fx:id="information" prefWidth="584.0" style="-fx-background-color: #ffff;" />
+                  <TableColumn fx:id="pdf" prefWidth="156.0" style="-fx-background-color: #ffff;" />
+               </columns>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
             </TableView>
          </children>
       </VBox>
