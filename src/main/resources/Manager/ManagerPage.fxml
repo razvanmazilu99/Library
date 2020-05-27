@@ -49,17 +49,7 @@
                   <Font name="Freestyle Script" size="53.0" />
                </font>
             </Label>
-            <Button layoutX="922.0" layoutY="13.0" mnemonicParsing="false" onAction="#handleAddBook" prefWidth="110.0" style="-fx-background-color: #656; -fx-border-width: 1.5px 1.5px 1.5px 1.5px; -fx-border-color: #ffff;" text="Add book" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </Button>
-            <Button layoutX="1061.0" layoutY="12.0" mnemonicParsing="false" prefWidth="112.0" style="-fx-background-color: #656; -fx-border-width: 1.5px 1.5px 1.5px 1.5px; -fx-border-color: #ffff;" text="Edit Book" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </Button>
-            <Button layoutX="1201.0" layoutY="12.0" mnemonicParsing="false" prefWidth="110.0" style="-fx-background-color: #656; -fx-border-width: 1.5px 1.5px 1.5px 1.5px; -fx-border-color: #ffff;" text="Delete book" textFill="WHITE">
+            <Button layoutX="1061.0" layoutY="13.0" mnemonicParsing="false" onAction="#handleAddBook" prefWidth="110.0" style="-fx-background-color: #656; -fx-border-width: 1.5px 1.5px 1.5px 1.5px; -fx-border-color: #ffff;" text="Add book" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>

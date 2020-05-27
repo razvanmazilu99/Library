@@ -4,6 +4,7 @@ import Manager.ActionMode.Book;
 import Manager.ActionMode.BooksModelTable;
 import Manager.Services.AddJSON;
 import Manager.Services.ReadJSON;
+import Manager.exceptions.BookAlreadyExistsException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -32,6 +33,8 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import static Login.controllers.ControllerLogin.saveUser;
+import static Manager.Services.AddJSON.books;
+import static Manager.Services.AddJSON.checkBookDoesNotAlreadyExist;
 
 public class ControllerManager implements Initializable {
 
@@ -105,9 +108,6 @@ public class ControllerManager implements Initializable {
                     Button edit = new Button();
                     edit.setText("Edit book");
                     edit.setPrefSize(140, 30);
-                    Button delete = new Button();
-                    delete.setText("Delete Book");
-                    delete.setPrefSize(140, 30);
                     edit.setOnAction(e -> {
                         try {
                             URL url = new File("src/main/resources/Manager/EditBookPage.fxml").toURI().toURL();
@@ -126,6 +126,15 @@ public class ControllerManager implements Initializable {
                             ex.printStackTrace();
                         }
                     });
+
+                    Button delete = new Button();
+                    delete.setText("Delete Book");
+                    delete.setPrefSize(140, 30);
+                    delete.setOnAction(e -> {
+                        books.remove(b);
+                        AddJSON.persistBooks();
+                    });
+
                     if(b.getPdf() != null) {
                         Button bookPDF = new Button();
                         bookPDF.setText("Read Online");
