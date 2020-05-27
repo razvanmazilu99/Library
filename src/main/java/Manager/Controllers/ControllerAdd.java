@@ -1,26 +1,14 @@
 package Manager.Controllers;
 
-import Login.controllers.ControllerLogin;
-import Manager.ActionMode.Book;
 import Manager.Services.AddJSON;
-import Manager.exceptions.BookAlreadyExistsException;
-import Register.exceptions.EmptyField;
-import Register.services.UserService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import org.apache.commons.io.FileUtils;
-import org.w3c.dom.Node;
-
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 import java.util.Base64;
 import java.util.List;
 

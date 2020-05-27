@@ -10,13 +10,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
-import java.io.IOException;
-
 import static Login.controllers.ControllerLogin.saveUser;
 import static Manager.Controllers.ControllerManager.*;
-import static Manager.Services.AddJSON.books;
-import static Manager.Services.AddJSON.checkBookDoesNotAlreadyExist;
+import static Manager.Services.AddJSON.*;
 
 public class ControllerEdit {
 
@@ -57,7 +53,7 @@ public class ControllerEdit {
     @FXML
     private void handleSave(ActionEvent event) {
         try {
-            checkBookDoesNotAlreadyExist(title.getText(), author.getText(), saveUser);
+            checkBookDoesNotAlreadyExist1(title.getText(), author.getText(), saveUser, id);
             for(Book b : books) {
                 if (books.indexOf(b) == id) {
                     Book newBook = new Book(title.getText(), author.getText(), genre.getText(), details.getText(), b.getImage(), b.getPdf());

@@ -4,7 +4,6 @@ import Manager.ActionMode.Book;
 import Manager.ActionMode.BooksModelTable;
 import Manager.Services.AddJSON;
 import Manager.Services.ReadJSON;
-import Manager.exceptions.BookAlreadyExistsException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -22,7 +21,6 @@ import javafx.scene.image.PixelWriter;
 import javafx.scene.image.WritableImage;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -31,10 +29,8 @@ import java.net.URL;
 import java.util.Base64;
 import java.util.List;
 import java.util.ResourceBundle;
-
 import static Login.controllers.ControllerLogin.saveUser;
 import static Manager.Services.AddJSON.books;
-import static Manager.Services.AddJSON.checkBookDoesNotAlreadyExist;
 
 public class ControllerManager implements Initializable {
 
@@ -80,8 +76,10 @@ public class ControllerManager implements Initializable {
         editBook.setCellValueFactory(new PropertyValueFactory<BooksModelTable, Button>("editBook"));
         deleteBook.setCellValueFactory(new PropertyValueFactory<BooksModelTable, Button>("deleteBook"));
         pdf.setCellValueFactory(new PropertyValueFactory<BooksModelTable, Button>("pdf"));
+
         if (listOfBooks == null)
             return;
+
         for (Book b : listOfBooks) {
             if (b.getUser().equals(saveUser)) {
                 byte[] decodedBytes = Base64.getDecoder().decode(b.getImage().getBytes());

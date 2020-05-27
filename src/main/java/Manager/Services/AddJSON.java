@@ -60,4 +60,11 @@ public class AddJSON {
                 throw new BookAlreadyExistsException();
         }
     }
+
+    public static void checkBookDoesNotAlreadyExist1(String title, String author, String username, int id1) throws BookAlreadyExistsException {
+        for (Book b : books) {
+            if (Objects.equals(title, b.getTitle()) && Objects.equals(author, b.getAuthor()) && Objects.equals(username, b.getUser()) && id1 != books.indexOf(b))
+                throw new BookAlreadyExistsException();
+        }
+    }
 }

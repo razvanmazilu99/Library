@@ -1,8 +1,6 @@
 package Manager.ActionMode;
 
 import Login.controllers.ControllerLogin;
-
-import java.io.File;
 import java.util.Objects;
 
 public class Book {
