@@ -2,6 +2,7 @@ package Manager.Controllers;
 
 import Manager.ActionMode.Book;
 import Manager.ActionMode.BooksModelTable;
+import Manager.Services.AddJSON;
 import Manager.Services.ReadJSON;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -38,20 +39,26 @@ public class ControllerManager implements Initializable {
     private Button close;
 
     @FXML
-    protected TableView<BooksModelTable> table;
+    private TableView<BooksModelTable> table;
 
     @FXML
-    private TableColumn<BooksModelTable, File> picture;
+    private TableColumn<BooksModelTable, ImageView> picture;
 
     @FXML
     private TableColumn<BooksModelTable, String> information;
 
     @FXML
-    private TableColumn<BooksModelTable, File> pdf;
+    private TableColumn<BooksModelTable, Button> editBook;
+
+    @FXML
+    private TableColumn<BooksModelTable, Button> deleteBook;
+
+    @FXML
+    private TableColumn<BooksModelTable, Button> pdf;
 
     private ObservableList<BooksModelTable> arrayBook = FXCollections.observableArrayList();
 
-    private static List<Book> listOfBooks;
+    public static List<Book> listOfBooks;
 
     static {
         try {
@@ -61,11 +68,15 @@ public class ControllerManager implements Initializable {
         }
     }
 
+    public static int id;
+
     public void initialize(URL location, ResourceBundle resources) {
 
-        picture.setCellValueFactory(new PropertyValueFactory<BooksModelTable, File>("picture"));
+        picture.setCellValueFactory(new PropertyValueFactory<BooksModelTable, ImageView>("picture"));
         information.setCellValueFactory(new PropertyValueFactory<BooksModelTable, String>("information"));
-        pdf.setCellValueFactory(new PropertyValueFactory<BooksModelTable, File>("pdf"));
+        editBook.setCellValueFactory(new PropertyValueFactory<BooksModelTable, Button>("editBook"));
+        deleteBook.setCellValueFactory(new PropertyValueFactory<BooksModelTable, Button>("deleteBook"));
+        pdf.setCellValueFactory(new PropertyValueFactory<BooksModelTable, Button>("pdf"));
         if (listOfBooks == null)
             return;
         for (Book b : listOfBooks) {
@@ -89,20 +100,42 @@ public class ControllerManager implements Initializable {
                     }
                 }
                     ImageView bookCover = new ImageView(image);
-                    Button bookPDF = new Button();
-                    bookPDF.setText("No Online Read");
-                    bookPDF.setPrefSize(150, 30);
                     bookCover.setFitHeight(150);
                     bookCover.setFitWidth(150);
+                    Button edit = new Button();
+                    edit.setText("Edit book");
+                    edit.setPrefSize(140, 30);
+                    Button delete = new Button();
+                    delete.setText("Delete Book");
+                    delete.setPrefSize(140, 30);
+                    edit.setOnAction(e -> {
+                        try {
+                            URL url = new File("src/main/resources/Manager/EditBookPage.fxml").toURI().toURL();
+                            FXMLLoader loader = new FXMLLoader();
+                            loader.setLocation(url);
+                            Parent home = loader.load();
+                            Scene scene = new Scene(home);
+                            ControllerEdit ce =  loader.getController();
+                            ce.populate(b.getTitle(), b.getAuthor(), b.getGenre(), b.getDetails());
+                            id = listOfBooks.indexOf(b);
+                            Stage stage = new Stage();
+                            stage.initStyle(StageStyle.UNDECORATED);
+                            stage.setScene(scene);
+                            stage.show();
+                        } catch (IOException ex) {
+                            ex.printStackTrace();
+                        }
+                    });
                     if(b.getPdf() != null) {
+                        Button bookPDF = new Button();
                         bookPDF.setText("Read Online");
-                        bookPDF.setPrefSize(150, 30);
+                        bookPDF.setPrefSize(140, 30);
                         bookPDF.setOnAction(e -> {
                             Desktop desktop = Desktop.getDesktop();
                             try {
-                                byte[] pdf = Base64.getDecoder().decode(b.getPdf().getBytes());
+                                byte[] pdf1 = Base64.getDecoder().decode(b.getPdf().getBytes());
                                 OutputStream fstream = new FileOutputStream("ReadOnline" + ".pdf");
-                                for (Byte p : pdf) {
+                                for (Byte p : pdf1) {
                                     fstream.write(p);
                                 }
                                 fstream.close();
@@ -111,10 +144,10 @@ public class ControllerManager implements Initializable {
                                 ex.printStackTrace();
                             }
                         });
-                        arrayBook.add(new BooksModelTable(bookCover, bookPDF, b));
+                        arrayBook.add(new BooksModelTable(bookCover, b, edit, delete, bookPDF));
                 }
                 else {
-                            arrayBook.add(new BooksModelTable(bookCover, b));
+                            arrayBook.add(new BooksModelTable(bookCover, b, edit, delete));
                     }
                 }
                 table.setItems(arrayBook);
@@ -148,6 +181,7 @@ public class ControllerManager implements Initializable {
 
     @FXML
     public void BooksPage(javafx.event.ActionEvent event) throws IOException {
+        AddJSON.loadBooksFromFile();
         URL url = new File("src/main/resources/Manager/ManagerPage.fxml").toURI().toURL();
         Parent home = FXMLLoader.load(url);
         Scene scene = new Scene(home);

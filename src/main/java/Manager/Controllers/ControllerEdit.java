@@ -56,6 +56,30 @@ public class ControllerEdit {
 
     @FXML
     private void handleSave(ActionEvent event) {
-
+        try {
+            checkBookDoesNotAlreadyExist(title.getText(), author.getText(), saveUser);
+            for(Book b : books) {
+                if (books.indexOf(b) == id) {
+                    Book newBook = new Book(title.getText(), author.getText(), genre.getText(), details.getText(), b.getImage(), b.getPdf());
+                    if (!b.getTitle().equals(newBook.getTitle())) {
+                        b.setTitle(newBook.getTitle());
+                    }
+                    if (!b.getAuthor().equals(newBook.getAuthor())) {
+                        b.setAuthor(newBook.getAuthor());
+                    }
+                    if (!b.getGenre().equals(newBook.getGenre())) {
+                        b.setGenre(newBook.getGenre());
+                    }
+                    if (!b.getDetails().equals(newBook.getDetails())) {
+                        b.setDetails(newBook.getDetails());
+                    }
+                    AddJSON.persistBooks();
+                    Stage stage = (Stage) save.getScene().getWindow();
+                    stage.close();
+                }
+            }
+        } catch (BookAlreadyExistsException e) {
+            bookAlreadyExist.setText(e.getMessage());
+        }
     }
 }
