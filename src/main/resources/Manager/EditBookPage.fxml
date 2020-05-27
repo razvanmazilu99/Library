@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Manager.Controllers.ControllerEdit">
+   <children>
+      <TextField fx:id="title" layoutX="439.0" layoutY="138.0" prefHeight="28.0" prefWidth="391.0" promptText="Title" style="-fx-border-color: #655; -fx-border-width: 0.5px 0.5px 2px 0.5;" />
+      <TextField fx:id="author" layoutX="439.0" layoutY="194.0" prefHeight="28.0" prefWidth="391.0" promptText="Author" style="-fx-border-color: #655; -fx-border-width: 0.5px 0.5px 2px 0.5;" />
+      <TextField fx:id="genre" layoutX="439.0" layoutY="249.0" prefHeight="28.0" prefWidth="391.0" promptText="Genre" style="-fx-border-color: #655; -fx-border-width: 0.5px 0.5px 2px 0.5;" />
+      <TextArea fx:id="details" layoutX="439.0" layoutY="309.0" prefHeight="79.0" prefWidth="393.0" promptText="Details" style="-fx-background-color: #655;" />
+      <ImageView fitHeight="500.0" fitWidth="424.0" opacity="0.9">
+         <image>
+            <Image url="@Add.jpg" />
+         </image>
+         <effect>
+            <InnerShadow />
+         </effect>
+      </ImageView>
+      <Label layoutX="23.0" layoutY="8.0" text="LibraryApp" textFill="#fffdfd">
+         <font>
+            <Font name="Harlow Solid Italic" size="38.0" />
+         </font>
+      </Label>
+      <Label layoutX="595.0" layoutY="59.0" text="Edit book" textFill="#665555">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="close" layoutX="816.0" layoutY="8.0" mnemonicParsing="false" onAction="#handleClose" style="-fx-background-color: #655;" text="X" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.218181610107422" />
+         </font></Button>
+      <Button fx:id="save" layoutX="746.0" layoutY="435.0" mnemonicParsing="false" onAction="#handleSave" prefHeight="30.0" prefWidth="86.0" style="-fx-background-color: #655;" text="Save" textFill="#fffdfd">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Label fx:id="bookAlreadyExist" layoutX="566.0" layoutY="441.0" prefHeight="25.0" prefWidth="140.0" textFill="#970a0a">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

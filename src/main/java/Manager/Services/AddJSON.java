@@ -40,7 +40,7 @@ public class AddJSON {
         persistBooks();
     }
 
-    private static void persistBooks() {
+    public static void persistBooks() {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
             objectMapper.writerWithDefaultPrettyPrinter().writeValue(BOOKS_PATH.toFile(), books);
@@ -54,7 +54,7 @@ public class AddJSON {
             throw new EmptyField();
     }
 
-    private static void checkBookDoesNotAlreadyExist(String title, String author, String username) throws BookAlreadyExistsException {
+    public static void checkBookDoesNotAlreadyExist(String title, String author, String username) throws BookAlreadyExistsException {
         for (Book b : books) {
             if (Objects.equals(title, b.getTitle()) && Objects.equals(author, b.getAuthor()) && Objects.equals(username, b.getUser()))
                 throw new BookAlreadyExistsException();
