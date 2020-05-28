@@ -69,7 +69,7 @@ public class ControllerLogin {
         try {
             verifyLogin(username.getText(), password.getText());
             saveUser = username.getText();
-            URL url = new File("src/main/resources/Manager/ManagerPage.fxml").toURI().toURL();
+            URL url = new File("src/main/resources/Client/ClientPage.fxml").toURI().toURL();
             Parent home = FXMLLoader.load(url);
             Stage stage = (Stage) login.getScene().getWindow();
             stage.close();
