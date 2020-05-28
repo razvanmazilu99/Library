@@ -30,7 +30,7 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <TextField layoutX="768.0" layoutY="14.0" prefHeight="36.0" prefWidth="241.0" promptText="Search" style="-fx-border-color: #655; -fx-border-width: 2px 2px 2px 2px;" />
+            <TextField fx:id="filter" layoutX="768.0" layoutY="14.0" prefHeight="36.0" prefWidth="241.0" promptText="Search" style="-fx-border-color: #655; -fx-border-width: 2px 2px 2px 2px;" />
             <ImageView fitHeight="45.0" fitWidth="33.0" layoutX="720.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@lupa.png" />

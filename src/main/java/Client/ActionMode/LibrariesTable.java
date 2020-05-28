@@ -1,6 +1,5 @@
 package Client.ActionMode;
 
-import Register.actionMode.User;
 import javafx.scene.control.Hyperlink;
 
 public class LibrariesTable {
@@ -28,5 +27,6 @@ public class LibrariesTable {
     public void setLibraryName(Hyperlink libraryName) {
         this.libraryName = libraryName;
     }
+
 }
 

@@ -3,7 +3,9 @@ package Login.controllers;
 import Login.exceptions.EmptyField;
 import Login.exceptions.IncorrectPassword;
 import Login.exceptions.UserDoesNotExistException;
+import Register.actionMode.User;
 import Register.exceptions.CouldNotWriteUsersException;
+import com.sun.deploy.security.SelectableSecurityManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,6 +23,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import static Login.services.LoginService.verifyLogin;
+import static Register.services.UserService.users;
 
 public class ControllerLogin {
 
@@ -69,7 +72,15 @@ public class ControllerLogin {
         try {
             verifyLogin(username.getText(), password.getText());
             saveUser = username.getText();
-            URL url = new File("src/main/resources/Client/ClientPage.fxml").toURI().toURL();
+            URL url = null;
+            for(User u : users)
+                if(u.getUsername().equals(saveUser)) {
+                    if (u.getRole().equals("Manager")) {
+                        url = new File("src/main/resources/Manager/ManagerPage.fxml").toURI().toURL();
+                    } else {
+                        url = new File("src/main/resources/Client/ClientPage.fxml").toURI().toURL();
+                    }
+                }
             Parent home = FXMLLoader.load(url);
             Stage stage = (Stage) login.getScene().getWindow();
             stage.close();
