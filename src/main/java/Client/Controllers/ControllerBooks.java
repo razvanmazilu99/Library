@@ -1,10 +1,13 @@
 package Client.Controllers;
 
 import Client.ActionMode.BooksTable;
+import Client.ActionMode.LibrariesTable;
 import Manager.ActionMode.Book;
 import Register.actionMode.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -135,8 +138,30 @@ public class ControllerBooks<libraryUser> implements Initializable {
 
             Hyperlink hyp = new Hyperlink(b.getTitle());
             arrayBooks.add(new BooksTable(bookCover, hyp, b.getAuthor(), b.getGenre()));
+
+            FilteredList<BooksTable> filteredData = new FilteredList<>(arrayBooks, bo -> true);
+            filter.textProperty().addListener((observable, oldValue, newValue) -> {
+                filteredData.setPredicate( book -> {
+
+                    if (newValue == null || newValue.isEmpty())
+                        return true;
+
+                    String lowerCaseFilter = newValue.toLowerCase();
+
+                    if (book.getTitle().getText().toLowerCase().indexOf(lowerCaseFilter) != -1)
+                        return true;
+                    else if (book.getAuthor().toLowerCase().indexOf(lowerCaseFilter) != -1)
+                        return true;
+                    else if (book.getGenre().toLowerCase().indexOf(lowerCaseFilter) != -1)
+                        return true;
+                    else return false;
+                });
+            });
+
+            SortedList<BooksTable> sortedData = new SortedList<>(filteredData);
+            sortedData.comparatorProperty().bind(table.comparatorProperty());
+            table.setItems(sortedData);
         }
-        table.setItems(arrayBooks);
         libraryUser = librarySave;
     }
 
