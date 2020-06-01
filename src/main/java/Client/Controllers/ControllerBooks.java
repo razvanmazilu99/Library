@@ -146,6 +146,20 @@ public class ControllerBooks<libraryUser> implements Initializable {
                 Button bookPDF = new Button();
                 bookPDF.setText("Read Online");
                 bookPDF.setPrefSize(186, 30);
+                bookPDF.setOnAction(e -> {
+                    Desktop desktop = Desktop.getDesktop();
+                    try {
+                        byte[] pdf1 = Base64.getDecoder().decode(b.getPdf().getBytes());
+                        OutputStream fstream = new FileOutputStream("ReadOnline" + ".pdf");
+                        for (Byte p : pdf1) {
+                            fstream.write(p);
+                        }
+                        fstream.close();
+                        desktop.open(new File("ReadOnline" + ".pdf"));
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
+                });
                 arrayBooks.add(new BooksTable(bookCover, hyp, b.getAuthor(), b.getGenre(), bookPDF));
             } else {
                 arrayBooks.add(new BooksTable(bookCover, hyp, b.getAuthor(), b.getGenre()));
