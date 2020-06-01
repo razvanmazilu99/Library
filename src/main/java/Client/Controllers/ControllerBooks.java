@@ -59,6 +59,9 @@ public class ControllerBooks<libraryUser> implements Initializable {
     @FXML
     private TableColumn<BooksTable, String> genre;
 
+    @FXML
+    private TableColumn<BooksTable, Button> openBook;
+
     public static List<Book> listOfBooks = new ArrayList<>();
     private ObservableList<BooksTable> arrayBooks = FXCollections.observableArrayList();
 
@@ -84,7 +87,7 @@ public class ControllerBooks<libraryUser> implements Initializable {
         title.setCellValueFactory(new PropertyValueFactory<BooksTable, Hyperlink>("title"));
         author.setCellValueFactory(new PropertyValueFactory<BooksTable, String>("author"));
         genre.setCellValueFactory(new PropertyValueFactory<BooksTable, String>("genre"));
-
+        openBook.setCellValueFactory(new PropertyValueFactory<BooksTable, Button>("openBook"));
 
         if (books == null)
             return;
@@ -138,7 +141,15 @@ public class ControllerBooks<libraryUser> implements Initializable {
             bookCover.setFitWidth(176);
 
             Hyperlink hyp = new Hyperlink(b.getTitle());
-            arrayBooks.add(new BooksTable(bookCover, hyp, b.getAuthor(), b.getGenre()));
+
+            if (b.getPdf() != null) {
+                Button bookPDF = new Button();
+                bookPDF.setText("Read Online");
+                bookPDF.setPrefSize(186, 30);
+                arrayBooks.add(new BooksTable(bookCover, hyp, b.getAuthor(), b.getGenre(), bookPDF));
+            } else {
+                arrayBooks.add(new BooksTable(bookCover, hyp, b.getAuthor(), b.getGenre()));
+            }
 
             hyp.setOnAction (e -> {
                 try {
