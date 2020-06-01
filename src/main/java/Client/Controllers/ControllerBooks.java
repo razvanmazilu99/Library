@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -137,5 +138,15 @@ public class ControllerBooks<libraryUser> implements Initializable {
         }
         table.setItems(arrayBooks);
         libraryUser = librarySave;
+    }
+
+    @FXML
+    public void LibrariesPage(javafx.event.ActionEvent event) throws IOException {
+        URL url = new File("src/main/resources/Client/ClientPage.fxml").toURI().toURL();
+        Parent home = FXMLLoader.load(url);
+        Scene scene = new Scene(home);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 }

@@ -15,7 +15,7 @@
                   <Font name="Harlow Solid Italic" size="28.0" />
                </font>
             </Label>
-            <Button layoutX="1056.0" layoutY="14.0" mnemonicParsing="false" prefWidth="110.0" style="-fx-background-color: #655; -fx-border-width: 1.5px 1.5px 1.5px 1.5px; -fx-border-color: #ffff;" text="Libraries" textFill="WHITE">
+            <Button layoutX="1056.0" layoutY="14.0" mnemonicParsing="false" onAction="#LibrariesPage" prefWidth="110.0" style="-fx-background-color: #655; -fx-border-width: 1.5px 1.5px 1.5px 1.5px; -fx-border-color: #ffff;" text="Libraries" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
