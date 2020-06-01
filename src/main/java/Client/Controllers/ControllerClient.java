@@ -16,12 +16,11 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.scene.Node;
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.net.URL;
 import java.util.*;
-import java.util.stream.Collectors;
 
 import static Register.services.UserService.users;
 
@@ -42,6 +41,7 @@ public class ControllerClient implements Initializable {
     @FXML
     private TableColumn<LibrariesTable, Hyperlink> libraryName;
 
+    public static List<User> listOfManagers = new ArrayList<>();
     private ObservableList<LibrariesTable> arrayUser = FXCollections.observableArrayList();
 
     @FXML
@@ -57,6 +57,8 @@ public class ControllerClient implements Initializable {
         stage1.show();
     }
 
+    public static String librarySave;
+
     public void initialize(URL location, ResourceBundle resources) {
 
         image.setCellValueFactory(new PropertyValueFactory<LibrariesTable, ImageView>("image"));
@@ -65,11 +67,11 @@ public class ControllerClient implements Initializable {
         if (users == null)
             return;
 
-        List<User> listOfManagers = new ArrayList<>();
-
-        for (User u : users) {
-            if (u.getLibraryName() != null) {
-                listOfManagers.add(u);
+        if(listOfManagers.size() == 0) {
+            for (User u : users) {
+                if (u.getLibraryName() != null) {
+                    listOfManagers.add(u);
+                }
             }
         }
 
@@ -91,13 +93,13 @@ public class ControllerClient implements Initializable {
 
                 hyp.setOnAction (e -> {
                     try {
-                        URL url = new File("src/main/resources/Manager/EditBookPage.fxml").toURI().toURL();
+                        librarySave = u.getUsername();
+                        URL url = new File("src/main/resources/Client/BooksPage.fxml").toURI().toURL();
                         FXMLLoader loader = new FXMLLoader();
                         loader.setLocation(url);
                         Parent home = loader.load();
                         Scene scene = new Scene(home);
-                        Stage stage = new Stage();
-                        stage.initStyle(StageStyle.UNDECORATED);
+                        Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
                         stage.setScene(scene);
                         stage.show();
                     } catch (IOException ex) {
