@@ -76,6 +76,7 @@ public class ControllerBooks<libraryUser> implements Initializable {
     }
 
     private static String libraryUser;
+    public static Book bookSave;
 
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -138,6 +139,25 @@ public class ControllerBooks<libraryUser> implements Initializable {
 
             Hyperlink hyp = new Hyperlink(b.getTitle());
             arrayBooks.add(new BooksTable(bookCover, hyp, b.getAuthor(), b.getGenre()));
+
+            hyp.setOnAction (e -> {
+                try {
+                    bookSave = b;
+                    URL url = new File("src/main/resources/Client/BookDetails.fxml").toURI().toURL();
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(url);
+                    Parent home = loader.load();
+                    Scene scene = new Scene(home);
+                    ControllerBookDetails control = loader.getController();
+                    control.getDetails();
+                    Stage stage = new Stage();
+                    stage.initStyle(StageStyle.UNDECORATED);
+                    stage.setScene(scene);
+                    stage.show();
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            });
 
             FilteredList<BooksTable> filteredData = new FilteredList<>(arrayBooks, bo -> true);
             filter.textProperty().addListener((observable, oldValue, newValue) -> {
