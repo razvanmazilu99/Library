@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client.Controllers.ControllerBookDetails">
+   <children>
+      <Pane prefHeight="60.0" prefWidth="850.0" style="-fx-background-color: #655;">
+         <children>
+            <Label layoutX="350.0" layoutY="-2.0" text="Book Details" textFill="WHITE">
+               <font>
+                  <Font name="Harlow Solid Italic" size="32.0" />
+               </font>
+            </Label>
+            <Button fx:id="close" layoutX="797.0" layoutY="13.0" mnemonicParsing="false" onAction="#handleClose" style="-fx-background-color: #655; -fx-border-width: 1.5px 1.5px 1.5px 1.5px; -fx-border-color: #ffff;" text="X" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <ImageView fx:id="bookCover" fitHeight="180.0" fitWidth="180.0" layoutX="56.0" layoutY="106.0" pickOnBounds="true" preserveRatio="true">
+         <viewport>
+            <Rectangle2D />
+         </viewport></ImageView>
+      <AnchorPane layoutX="298.0" layoutY="97.0" prefHeight="263.0" prefWidth="500.0">
+         <children>
+            <Label fx:id="details" prefHeight="265.0" prefWidth="500.0" text="Label" />
+         </children>
+      </AnchorPane>
+      <Button layoutX="688.0" layoutY="431.0" mnemonicParsing="false" prefWidth="110.0" style="-fx-background-color: #655; -fx-border-width: 3px 3px 3px 3px; -fx-border-color: #655;" text="Add Request" textFill="WHITE" />
+   </children>
+</AnchorPane>
