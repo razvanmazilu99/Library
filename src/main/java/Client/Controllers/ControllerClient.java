@@ -59,6 +59,7 @@ public class ControllerClient implements Initializable {
     }
 
     public static String librarySave;
+    public static String libraryNameSave;
 
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -95,6 +96,7 @@ public class ControllerClient implements Initializable {
                 hyp.setOnAction (e -> {
                     try {
                         librarySave = u.getUsername();
+                        libraryNameSave = u.getLibraryName();
                         URL url = new File("src/main/resources/Client/BooksPage.fxml").toURI().toURL();
                         FXMLLoader loader = new FXMLLoader();
                         loader.setLocation(url);
