@@ -10,7 +10,15 @@ public class BooksTable {
     private Hyperlink title;
     private String author;
     private String genre;
+    private Button openBook;
 
+    public BooksTable(ImageView bookCover, Hyperlink title, String author, String genre, Button openBook) {
+        this.bookCover = bookCover;
+        this.title = title;
+        this.author = author;
+        this.genre = genre;
+        this.openBook = openBook;
+    }
 
     public BooksTable(ImageView bookCover, Hyperlink title, String author, String genre) {
         this.bookCover = bookCover;
@@ -49,5 +57,13 @@ public class BooksTable {
 
     public void setGenre(String genre) {
         this.genre = genre;
+    }
+
+    public Button getOpenBook() {
+        return openBook;
+    }
+
+    public void setOpenBook(Button openBook) {
+        this.openBook = openBook;
     }
 }
