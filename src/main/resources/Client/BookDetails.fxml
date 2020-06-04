@@ -32,12 +32,12 @@
          </children>
       </AnchorPane>
       <Button fx:id="request" layoutX="688.0" layoutY="431.0" mnemonicParsing="false" onAction="#handleRequest" prefWidth="110.0" style="-fx-background-color: #655; -fx-border-width: 3px 3px 3px 3px; -fx-border-color: #655;" text="Add Request" textFill="WHITE" />
-      <Label fx:id="exists" layoutX="467.0" layoutY="436.0" text="Request already exists!" textFill="#970a0a">
+      <Label fx:id="exists" layoutX="467.0" layoutY="436.0" textFill="#970a0a">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label fx:id="ten" layoutX="443.0" layoutY="436.0" text="You already have 10 requests!" textFill="#970a0a">
+      <Label fx:id="ten" layoutX="443.0" layoutY="436.0" textFill="#970a0a">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>

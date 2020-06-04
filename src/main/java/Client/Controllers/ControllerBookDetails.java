@@ -1,6 +1,11 @@
 package Client.Controllers;
 
+import Client.Exceptions.RequestAlreadyExistsException;
+import Client.Exceptions.TenRequestsException;
 import Client.Services.AddRequest;
+import Login.exceptions.EmptyField;
+import Login.exceptions.IncorrectPassword;
+import Login.exceptions.UserDoesNotExistException;
 import Manager.Services.AddJSON;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -45,10 +50,20 @@ public class ControllerBookDetails {
     private Label exists;
 
     @FXML
-    public void handleRequest() {
-            //if (userSave != null)
-               // AddRequest.addRequest(userSave, bookSave);
-            sent.setText("Request successfully sent!");
+    public void handleRequest() throws IOException {
+        AddRequest.loadRequestsFromFile();
+        try {
+                AddRequest.addRequest(userSave, bookSave);
+                sent.setText("Request successfully sent!");
+        } catch (RequestAlreadyExistsException e) {
+            sent.setText(null);
+            ten.setText(null);
+            exists.setText(e.getMessage());
+        } catch (TenRequestsException e) {
+            sent.setText(null);
+            exists.setText(null);
+            ten.setText(e.getMessage());
+        }
     }
 
     @FXML
