@@ -1,5 +1,6 @@
 package Manager.Controllers;
 
+import Client.Services.AddRequest;
 import Manager.ActionMode.Book;
 import Manager.ActionMode.BooksModelTable;
 import Manager.Services.AddJSON;
@@ -197,4 +198,14 @@ public class ControllerManager implements Initializable {
         stage.show();
     }
 
+    @FXML
+    public void handleRequest(javafx.event.ActionEvent event) throws IOException {
+        AddRequest.loadRequestsFromFile();
+        URL url = new File("src/main/resources/Manager/RequestPage.fxml").toURI().toURL();
+        Parent home = FXMLLoader.load(url);
+        Scene scene = new Scene(home);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
 }
