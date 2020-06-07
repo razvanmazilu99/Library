@@ -4,8 +4,6 @@ import Login.exceptions.EmptyField;
 import Login.exceptions.IncorrectPassword;
 import Login.exceptions.UserDoesNotExistException;
 import Register.actionMode.User;
-import Register.exceptions.CouldNotWriteUsersException;
-import com.sun.deploy.security.SelectableSecurityManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
