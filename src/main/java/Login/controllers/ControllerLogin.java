@@ -64,6 +64,7 @@ public class ControllerLogin {
 
     public static String saveUser;
     public static User userSave;
+    public static User userSaveManager;
 
     @FXML
     public void handleButtonAction(ActionEvent event) throws IOException {
@@ -75,6 +76,7 @@ public class ControllerLogin {
             for(User u : users)
                 if(u.getUsername().equals(saveUser)) {
                     if (u.getRole().equals("Manager")) {
+                        userSaveManager = u;
                         url = new File("src/main/resources/Manager/ManagerPage.fxml").toURI().toURL();
                     } else {
                         userSave = u;

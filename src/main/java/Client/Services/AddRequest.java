@@ -52,7 +52,7 @@ public class AddRequest {
 
     public static void checkRequestDoesNotAlreadyExist(String username, String title, String author) throws RequestAlreadyExistsException {
         for (Request r : requests) {
-            if (Objects.equals(title, r.getTitle_book()) && Objects.equals(username, r.getUsername_user()) && Objects.equals(author, r.getAuthor_book()))
+            if (Objects.equals(title, r.getTitle_book()) && Objects.equals(username, r.getUsername_user()) && Objects.equals(author, r.getAuthor_book()) && r.getStatus() == 0)
                 throw new RequestAlreadyExistsException();
         }
     }
@@ -62,7 +62,7 @@ public class AddRequest {
         if(requests == null)
             return;
         for (Request r : requests) {
-            if (Objects.equals(username, r.getUsername_user()) && Objects.equals(library, r.getLibraryName_book()))
+            if (Objects.equals(username, r.getUsername_user()) && Objects.equals(library, r.getLibraryName_book()) && r.getStatus() == 0)
                 count++;
         }
         if(count == 10)

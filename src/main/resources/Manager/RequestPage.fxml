@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Manager.Controllers.ControllerManager">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Manager.Controllers.ControllerRequest">
    <children>
       <Pane prefHeight="60.0" prefWidth="1401.0" style="-fx-background-color: #656;">
          <children>
@@ -37,43 +36,27 @@
             </Button>
          </children>
       </Pane>
-      <ImageView fitHeight="365.0" fitWidth="1416.0" layoutX="-15.0" layoutY="60.0">
+      <ImageView fitHeight="740.0" fitWidth="640.0" layoutX="-6.0" layoutY="60.0">
          <image>
-            <Image url="@carturesti.jpg" />
+            <Image url="@RequestPic.jpg" />
          </image>
       </ImageView>
-      <Pane layoutY="424.0" prefHeight="60.0" prefWidth="1400.0" style="-fx-background-color: #656;">
+      <Label layoutX="937.0" layoutY="68.0" text="My requests">
+         <font>
+            <Font name="Freestyle Script" size="53.0" />
+         </font>
+      </Label>
+      <Pane layoutX="711.0" layoutY="166.0" prefHeight="620.0" prefWidth="620.0">
          <children>
-            <Label layoutX="632.0" layoutY="-12.0" text="My books" textFill="WHITE">
-               <font>
-                  <Font name="Freestyle Script" size="53.0" />
-               </font>
-            </Label>
-            <Button layoutX="1061.0" layoutY="13.0" mnemonicParsing="false" onAction="#handleAddBook" prefWidth="110.0" style="-fx-background-color: #656; -fx-border-width: 1.5px 1.5px 1.5px 1.5px; -fx-border-color: #ffff;" text="Add book" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </Button>
-         </children></Pane>
-      <VBox layoutX="143.0" layoutY="504.0" prefHeight="282.0" prefWidth="1101.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="143.0" AnchorPane.rightAnchor="156.0" AnchorPane.topAnchor="504.0">
-         <children>
-            <TableView fx:id="table" prefHeight="281.0" prefWidth="900.0" style="-fx-background-color: #ffff;" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="249.0" AnchorPane.rightAnchor="249.0" AnchorPane.topAnchor="502.0">
-               <columns>
-                  <TableColumn fx:id="picture" prefWidth="158.0" />
-                  <TableColumn fx:id="information" prefWidth="506.0" />
-                  <TableColumn fx:id="editBook" prefWidth="145.0" />
-                  <TableColumn fx:id="deleteBook" prefWidth="145.0" />
-                  <TableColumn fx:id="pdf" prefWidth="145.0" />
-               </columns>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
+            <TableView fx:id="table" prefHeight="620.0" prefWidth="620.0">
+              <columns>
+                <TableColumn fx:id="picture" prefWidth="120.0" />
+                <TableColumn fx:id="information" prefWidth="237.0" />
+                  <TableColumn fx:id="accept" prefWidth="129.0" />
+                  <TableColumn fx:id="decline" minWidth="9.0" prefWidth="132.0" />
+              </columns>
             </TableView>
          </children>
-      </VBox>
+      </Pane>
    </children>
 </AnchorPane>
-
