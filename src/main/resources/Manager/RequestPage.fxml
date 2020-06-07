@@ -41,7 +41,7 @@
             <Image url="@RequestPic.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="937.0" layoutY="68.0" text="My requests" textFill="#665566">
+      <Label layoutX="937.0" layoutY="68.0" text="My requests">
          <font>
             <Font name="Freestyle Script" size="53.0" />
          </font>

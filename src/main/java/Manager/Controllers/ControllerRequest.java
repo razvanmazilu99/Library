@@ -48,6 +48,8 @@ public class ControllerRequest implements Initializable {
 
     private ObservableList<RequestsT> arrayRequest = FXCollections.observableArrayList();
 
+    public static int id_request;
+
     public void initialize(URL location, ResourceBundle resources) {
 
         picture.setCellValueFactory(new PropertyValueFactory<RequestsT, ImageView>("picture"));
@@ -60,7 +62,7 @@ public class ControllerRequest implements Initializable {
 
         for (Request r : Client.Services.AddRequest.requests) {
             if(userSaveManager != null)
-                if (r.getLibraryName_book().equals(userSaveManager.getLibraryName())) {
+                if (r.getLibraryName_book().equals(userSaveManager.getLibraryName()) && r.getStatus() == 0) {
                     ImageView requestPic = new ImageView("Manager/requestIcon.jpg");
                     requestPic.setFitHeight(116);
                     requestPic.setFitWidth(116);
@@ -69,14 +71,38 @@ public class ControllerRequest implements Initializable {
                     accept_button.setText("Accept");
                     accept_button.setPrefSize(124, 30);
                     accept_button.setOnAction(e -> {
+                        try {
+                            id_request = Client.Services.AddRequest.requests.indexOf(r);
+                            URL url = new File("src/main/resources/Manager/Accept.fxml").toURI().toURL();
+                            Parent home = null;
+                            home = FXMLLoader.load(url);
+                            Scene scene = new Scene(home);
+                            Stage stage = new Stage();
+                            stage.initStyle(StageStyle.UNDECORATED);
+                            stage.setScene(scene);
+                            stage.show();
+                        } catch (IOException ex) {
+                            ex.printStackTrace();
+                        }
                     });
 
                     Button decline_button = new Button();
                     decline_button.setText("Decline");
                     decline_button.setPrefSize(124, 30);
                     decline_button.setOnAction(e -> {
-                        //books.remove(b);
-                        //AddJSON.persistBooks();
+                        try {
+                            id_request = Client.Services.AddRequest.requests.indexOf(r);
+                            URL url = new File("src/main/resources/Manager/Decline.fxml").toURI().toURL();
+                            Parent home = null;
+                            home = FXMLLoader.load(url);
+                            Scene scene = new Scene(home);
+                            Stage stage = new Stage();
+                            stage.initStyle(StageStyle.UNDECORATED);
+                            stage.setScene(scene);
+                            stage.show();
+                        } catch (IOException ex) {
+                            ex.printStackTrace();
+                        }
                     });
                     arrayRequest.add(new RequestsT(requestPic, r.getName_user() + ' ' + r.getSurname_user() + '\n' + r.getAddress_user() + '\n' + r.getTitle_book() + ", " + r.getAuthor_book(), accept_button, decline_button));
                 }
