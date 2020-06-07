@@ -8,13 +8,17 @@ import static Client.Controllers.ControllerClient.libraryNameSave;
 
 public class Request {
 
-    String name_user;
-    String surname_user;
-    String address_user;
-    String username_user;
-    String title_book;
-    String author_book;
-    String libraryName_book;
+    private String name_user;
+    private String surname_user;
+    private String address_user;
+    private String username_user;
+    private String title_book;
+    private String author_book;
+    private String libraryName_book;
+    private String pickUpDate;
+    private String returnDate;
+    private String declineMessage;
+    private int status;
 
     public Request() {
     }
@@ -27,6 +31,7 @@ public class Request {
         this.title_book = b.getTitle();
         this.author_book = b.getAuthor();
         this.libraryName_book = libraryNameSave;
+        this.status = 0;
     }
 
     public String getName_user() {
@@ -85,23 +90,59 @@ public class Request {
         this.libraryName_book = libraryName_book;
     }
 
+    public String getPickUpDate() {
+        return pickUpDate;
+    }
+
+    public void setPickUpDate(String pickUpDate) {
+        this.pickUpDate = pickUpDate;
+    }
+
+    public String getReturnDate() {
+        return returnDate;
+    }
+
+    public void setReturnDate(String returnDate) {
+        this.returnDate = returnDate;
+    }
+
+    public String getDeclineMessage() {
+        return declineMessage;
+    }
+
+    public void setDeclineMessage(String declineMessage) {
+        this.declineMessage = declineMessage;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Request request = (Request) o;
-        return name_user.equals(request.name_user) &&
+        return status == request.status &&
+                name_user.equals(request.name_user) &&
                 surname_user.equals(request.surname_user) &&
                 address_user.equals(request.address_user) &&
                 username_user.equals(request.username_user) &&
                 title_book.equals(request.title_book) &&
                 author_book.equals(request.author_book) &&
-                libraryName_book.equals(request.libraryName_book);
+                libraryName_book.equals(request.libraryName_book) &&
+                pickUpDate.equals(request.pickUpDate) &&
+                returnDate.equals(request.returnDate) &&
+                declineMessage.equals(request.declineMessage);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name_user, surname_user, address_user, username_user, title_book, author_book, libraryName_book);
+        return Objects.hash(name_user, surname_user, address_user, username_user, title_book, author_book, libraryName_book, pickUpDate, returnDate, declineMessage, status);
     }
 
     @Override
@@ -114,6 +155,10 @@ public class Request {
                 ", title_book='" + title_book + '\'' +
                 ", author_book='" + author_book + '\'' +
                 ", libraryName_book='" + libraryName_book + '\'' +
+                ", pickUpDate=" + pickUpDate +
+                ", returnDate=" + returnDate +
+                ", declineMessage='" + declineMessage + '\'' +
+                ", status=" + status +
                 '}';
     }
 }
