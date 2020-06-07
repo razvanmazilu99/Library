@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Manager.Controllers.ControllerAccept">
    <children>
       <Pane layoutX="-3.0" layoutY="43.0" prefHeight="60.0" prefWidth="410.0" style="-fx-background-color: #656;">
          <children>
@@ -19,27 +15,37 @@
             </Label>
          </children>
       </Pane>
-      <Button fx:id="close" layoutX="418.0" layoutY="7.0" mnemonicParsing="false" style="-fx-background-color: #656;" text="X" textFill="WHITE">
+      <Button fx:id="close" layoutX="418.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleClose" style="-fx-background-color: #656;" text="X" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <DatePicker layoutX="30.0" layoutY="299.0" prefHeight="32.0" prefWidth="190.0" />
-      <DatePicker layoutX="30.0" layoutY="193.0" prefHeight="32.0" prefWidth="190.0" />
+      <DatePicker fx:id="returnDate" layoutX="30.0" layoutY="299.0" prefHeight="32.0" prefWidth="190.0" />
+      <DatePicker fx:id="pickUpDate" layoutX="30.0" layoutY="193.0" prefHeight="32.0" prefWidth="190.0" />
       <Label layoutX="30.0" layoutY="156.0" text="Pick up date:" textFill="#111111">
          <font>
             <Font name="System Italic" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="30.0" layoutY="262.0" text="Return date: ">
+      <Label layoutX="30.0" layoutY="262.0" text="Return date: " textFill="#111111">
          <font>
             <Font name="System Italic" size="16.0" />
          </font>
       </Label>
-      <Button layoutX="340.0" layoutY="386.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="102.0" style="-fx-background-color: #656;" text="Submit" textFill="WHITE">
+      <Button fx:id="submit" layoutX="340.0" layoutY="386.0" mnemonicParsing="false" onAction="#handleAccept" prefHeight="31.0" prefWidth="102.0" style="-fx-background-color: #656;" text="Submit" textFill="WHITE">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Button>
+      <Label fx:id="message" layoutX="149.0" layoutY="395.0" textFill="#970a0a">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="empty" layoutX="181.0" layoutY="395.0" textFill="#970a0a">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
