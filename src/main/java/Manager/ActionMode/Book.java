@@ -12,6 +12,7 @@ public class Book {
     private String image;
     private String pdf;
     private String user;
+    private int noViews;
 
     public Book() {
 
@@ -25,6 +26,7 @@ public class Book {
         this.image = image;
         this.pdf = pdf;
         this.user = ControllerLogin.saveUser;
+        this.noViews = 0;
     }
 
     public String getUser() {
@@ -83,23 +85,32 @@ public class Book {
         this.pdf = pdf;
     }
 
+    public int getNoViews() {
+        return noViews;
+    }
+
+    public void setNoViews(int noViews) {
+        this.noViews = noViews;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Book)) return false;
         Book book = (Book) o;
-        return Objects.equals(title, book.title) &&
-                Objects.equals(author, book.author) &&
-                Objects.equals(genre, book.genre) &&
-                Objects.equals(details, book.details) &&
-                Objects.equals(image, book.image) &&
-                Objects.equals(pdf, book.pdf) &&
-                Objects.equals(user, book.user);
+        return noViews == book.noViews &&
+                title.equals(book.title) &&
+                author.equals(book.author) &&
+                genre.equals(book.genre) &&
+                details.equals(book.details) &&
+                image.equals(book.image) &&
+                pdf.equals(book.pdf) &&
+                user.equals(book.user);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(title, author, genre, details, image, pdf, user);
+        return Objects.hash(title, author, genre, details, image, pdf, user, noViews);
     }
 
     @Override
@@ -109,9 +120,10 @@ public class Book {
                 ", author='" + author + '\'' +
                 ", genre='" + genre + '\'' +
                 ", details='" + details + '\'' +
-                ", picture=" + image +
-                ", pdf=" + pdf +
+                ", image='" + image + '\'' +
+                ", pdf='" + pdf + '\'' +
                 ", user='" + user + '\'' +
+                ", noViews=" + noViews +
                 '}';
     }
 }

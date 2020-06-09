@@ -26,7 +26,7 @@
             <TableView fx:id="table" prefHeight="620.0" prefWidth="620.0">
               <columns>
                 <TableColumn fx:id="information" prefWidth="460.0" />
-                  <TableColumn fx:id="noViews" prefWidth="158.327392578125" text="Number of Views" />
+                  <TableColumn fx:id="noOfViews" prefWidth="158.327392578125" text="Number of Views" />
               </columns>
             </TableView>
          </children>
