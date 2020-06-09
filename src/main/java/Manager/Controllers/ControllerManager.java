@@ -212,6 +212,7 @@ public class ControllerManager implements Initializable {
 
     @FXML
     public void handleViews(ActionEvent event) throws IOException {
+        AddJSON.loadBooksFromFile();
         URL url = new File("src/main/resources/Manager/ViewsPage.fxml").toURI().toURL();
         Parent home = FXMLLoader.load(url);
         Scene scene = new Scene(home);
