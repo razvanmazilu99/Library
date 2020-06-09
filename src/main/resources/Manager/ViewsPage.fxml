@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Manager.Controllers.ControllerViews">
+   <children>
+      <ImageView fitHeight="800.0" fitWidth="640.0" layoutX="-6.0">
+         <image>
+            <Image url="@views1.jpg" />
+         </image>
+         <effect>
+            <DropShadow />
+         </effect>
+      </ImageView>
+      <Label layoutX="953.0" layoutY="75.0" text="My views">
+         <font>
+            <Font name="Freestyle Script" size="53.0" />
+         </font>
+      </Label>
+      <Pane layoutX="711.0" layoutY="166.0" prefHeight="620.0" prefWidth="620.0">
+         <children>
+            <TableView fx:id="table" prefHeight="620.0" prefWidth="620.0">
+              <columns>
+                <TableColumn fx:id="information" prefWidth="460.0" />
+                  <TableColumn fx:id="noViews" prefWidth="158.327392578125" text="Number of Views" />
+              </columns>
+            </TableView>
+         </children>
+      </Pane>
+      <Pane prefHeight="60.0" prefWidth="1401.0" style="-fx-background-color: #656;">
+         <children>
+            <Label layoutX="20.0" prefHeight="47.0" prefWidth="162.0" rotate="-5.0" text="LibraryApp" textFill="WHITE">
+               <font>
+                  <Font name="Harlow Solid Italic" size="28.0" />
+               </font>
+            </Label>
+            <Button layoutX="922.0" layoutY="14.0" mnemonicParsing="false" onAction="#BooksPage" prefWidth="110.0" style="-fx-background-color: #656; -fx-border-width: 1.5px 1.5px 1.5px 1.5px; -fx-border-color: #ffff;" text="My books" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="1061.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleRequest" prefWidth="112.0" style="-fx-background-color: #656; -fx-border-width: 1.5px 1.5px 1.5px 1.5px; -fx-border-color: #ffff;" text="My requests" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="1201.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleViews" prefWidth="110.0" style="-fx-background-color: #656; -fx-border-width: 1.5px 1.5px 1.5px 1.5px; -fx-border-color: #ffff;" text="My views" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="close" layoutX="1350.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleClose" style="-fx-background-color: #656; -fx-border-width: 1.5px 1.5px 1.5px 1.5px; -fx-border-color: #ffff;" text="X" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
