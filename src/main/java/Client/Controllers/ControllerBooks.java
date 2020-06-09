@@ -3,6 +3,7 @@ package Client.Controllers;
 import Client.ActionMode.BooksTable;
 import Client.ActionMode.LibrariesTable;
 import Manager.ActionMode.Book;
+import Manager.Services.AddJSON;
 import Register.actionMode.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -167,7 +168,9 @@ public class ControllerBooks<libraryUser> implements Initializable {
 
             hyp.setOnAction (e -> {
                 try {
+                    b.setNoViews(b.getNoViews() + 1);
                     bookSave = b;
+                    AddJSON.persistBooks();
                     URL url = new File("src/main/resources/Client/BookDetails.fxml").toURI().toURL();
                     FXMLLoader loader = new FXMLLoader();
                     loader.setLocation(url);

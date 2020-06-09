@@ -6,6 +6,7 @@ import Manager.ActionMode.RequestsT;
 import Manager.Services.AddJSON;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -138,6 +139,17 @@ public class ControllerRequest implements Initializable {
     public void handleRequest(javafx.event.ActionEvent event) throws IOException {
         AddRequest.loadRequestsFromFile();
         URL url = new File("src/main/resources/Manager/RequestPage.fxml").toURI().toURL();
+        Parent home = FXMLLoader.load(url);
+        Scene scene = new Scene(home);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    public void handleViews(ActionEvent event) throws IOException {
+        AddJSON.loadBooksFromFile();
+        URL url = new File("src/main/resources/Manager/ViewsPage.fxml").toURI().toURL();
         Parent home = FXMLLoader.load(url);
         Scene scene = new Scene(home);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
