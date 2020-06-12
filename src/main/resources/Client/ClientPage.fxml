@@ -20,7 +20,7 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <Button layoutX="1200.0" layoutY="14.0" mnemonicParsing="false" prefWidth="112.0" style="-fx-background-color: #655; -fx-border-width: 1.5px 1.5px 1.5px 1.5px; -fx-border-color: #ffff;" text="My requests" textFill="WHITE">
+            <Button layoutX="1200.0" layoutY="14.0" mnemonicParsing="false" onAction="#RequestPage" prefWidth="112.0" style="-fx-background-color: #655; -fx-border-width: 1.5px 1.5px 1.5px 1.5px; -fx-border-color: #ffff;" text="My requests" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
