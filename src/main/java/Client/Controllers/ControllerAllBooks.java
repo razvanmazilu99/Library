@@ -1,7 +1,8 @@
 package Client.Controllers;
 
-import Client.ActionMode.Request;
-import Client.ActionMode.RequestTable;
+import Client.ActionMode.AllBooksTable;
+import Manager.ActionMode.Book;
+import Register.actionMode.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -10,54 +11,31 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import java.io.*;
 import java.net.URL;
 import java.util.*;
-import static Login.controllers.ControllerLogin.saveUser;
+import static Manager.Services.AddJSON.books;
 
-public class ControllerClientRequest implements Initializable {
+public class ControllerAllBooks implements Initializable {
 
     @FXML
     private Button close;
 
     @FXML
-    private TableView<RequestTable> table;
+    private TableView<AllBooksTable> table;
 
     @FXML
-    private TableColumn<RequestTable, String> information;
+    private TableColumn<AllBooksTable, String> information;
 
     @FXML
-    private TableColumn<RequestTable, String> status;
+    private TableColumn<AllBooksTable, String> library;
 
-    private ObservableList<RequestTable> arrayRequests = FXCollections.observableArrayList();
-
-    public void initialize(URL location, ResourceBundle resources) {
-
-        information.setCellValueFactory(new PropertyValueFactory<RequestTable, String>("information"));
-        status.setCellValueFactory(new PropertyValueFactory<RequestTable, String>("status"));
-
-        try {
-            Client.Services.AddRequest.loadRequestsFromFile();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        if (Client.Services.AddRequest.requests == null)
-            return;
-
-        for (Request r : Client.Services.AddRequest.requests) {
-            if (r.getUsername_user().equals(saveUser)) {
-                arrayRequests.add(new RequestTable(r.getTitle_book() + '\n' + r.getAuthor_book(), r.getStatus() == 0 ? "No status!" : (r.getStatus() == 1 ? "Accepted\nPick up date: " + r.getPickUpDate() + "\nReturn date: " + r.getReturnDate() : "Declined\n" + r.getDeclineMessage())));
-            }
-            table.setItems(arrayRequests);
-        }
-    }
+    private ObservableList<AllBooksTable> arrayAllBooks = FXCollections.observableArrayList();
 
     @FXML
     private void handleClose() throws IOException {
@@ -71,6 +49,34 @@ public class ControllerClientRequest implements Initializable {
         stage1.setScene(scene);
         stage1.show();
     }
+
+    public void initialize(URL location, ResourceBundle resources) {
+
+        information.setCellValueFactory(new PropertyValueFactory<AllBooksTable, String>("information"));
+        library.setCellValueFactory(new PropertyValueFactory<AllBooksTable, String>("library"));
+
+        try {
+            Manager.Services.AddJSON.loadBooksFromFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        if (books.size() > 0) {
+            Collections.sort(books, new Comparator<Book>() {
+                public int compare(final Book object1, final Book object2) {
+                    return object1.getTitle().compareTo(object2.getTitle());
+                }
+            });
+        }
+
+        if (books == null)
+            return;
+
+        for (Book b : books) {
+                arrayAllBooks.add(new AllBooksTable("Title: " + b.getTitle() + '\n' + "Author: " + b.getAuthor(), "Library: " + b.getUser()));
+            }
+            table.setItems(arrayAllBooks);
+        }
 
     @FXML
     public void LibrariesPage(javafx.event.ActionEvent event) throws IOException {
