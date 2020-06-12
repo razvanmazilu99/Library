@@ -91,4 +91,14 @@ public class ControllerClientRequest implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+
+    @FXML
+    public void handleBooks(javafx.event.ActionEvent event) throws IOException {
+        URL url = new File("src/main/resources/Client/AllBooksPage.fxml").toURI().toURL();
+        Parent home = FXMLLoader.load(url);
+        Scene scene = new Scene(home);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
 }
