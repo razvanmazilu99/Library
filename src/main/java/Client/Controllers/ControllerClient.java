@@ -1,7 +1,6 @@
 package Client.Controllers;
 
 import Client.ActionMode.LibrariesTable;
-import Manager.Services.AddJSON;
 import Register.actionMode.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -16,7 +15,6 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import javafx.scene.Node;
 import java.io.File;
 import java.io.IOException;
@@ -25,7 +23,7 @@ import java.util.*;
 
 import static Register.services.UserService.users;
 
-public class ControllerClient implements Initializable {
+public class ControllerClient extends Controller implements Initializable {
 
     @FXML
     private Button close;
@@ -45,21 +43,31 @@ public class ControllerClient implements Initializable {
     public static List<User> listOfManagers = new ArrayList<>();
     private ObservableList<LibrariesTable> arrayUser = FXCollections.observableArrayList();
 
-    @FXML
-    private void handleClose() throws IOException {
-        Stage stage = (Stage) close.getScene().getWindow();
-        stage.close();
-        URL url = new File("src/main/resources/Login/Login.fxml").toURI().toURL();
-        Parent home = FXMLLoader.load(url);
-        Scene scene = new Scene(home);
-        Stage stage1 = new Stage();
-        stage1.initStyle(StageStyle.UNDECORATED);
-        stage1.setScene(scene);
-        stage1.show();
-    }
-
     public static String librarySave;
     public static String libraryNameSave;
+
+    @FXML
+    private void handleClose() throws IOException {
+        super.handleClose(close);
+    }
+
+    @FXML
+    public void LibrariesPage(javafx.event.ActionEvent event) throws IOException {
+        URL url = new File("src/main/resources/Client/ClientPage.fxml").toURI().toURL();
+        super.handle(event, url);
+    }
+
+    @FXML
+    public void RequestPage(javafx.event.ActionEvent event) throws IOException {
+        URL url = new File("src/main/resources/Client/ClientRequestPage.fxml").toURI().toURL();
+        super.handle(event, url);
+    }
+
+    @FXML
+    public void handleBooks(javafx.event.ActionEvent event) throws IOException {
+        URL url = new File("src/main/resources/Client/AllBooksPage.fxml").toURI().toURL();
+        super.handle(event, url);
+    }
 
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -98,13 +106,7 @@ public class ControllerClient implements Initializable {
                         librarySave = u.getUsername();
                         libraryNameSave = u.getLibraryName();
                         URL url = new File("src/main/resources/Client/BooksPage.fxml").toURI().toURL();
-                        FXMLLoader loader = new FXMLLoader();
-                        loader.setLocation(url);
-                        Parent home = loader.load();
-                        Scene scene = new Scene(home);
-                        Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-                        stage.setScene(scene);
-                        stage.show();
+                        super.handle(e, url);
                     } catch (IOException ex) {
                         ex.printStackTrace();
                     }
@@ -133,35 +135,5 @@ public class ControllerClient implements Initializable {
                 table.setItems(sortedData);
             }
         }
-    }
-
-    @FXML
-    public void LibrariesPage(javafx.event.ActionEvent event) throws IOException {
-        URL url = new File("src/main/resources/Client/ClientPage.fxml").toURI().toURL();
-        Parent home = FXMLLoader.load(url);
-        Scene scene = new Scene(home);
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    @FXML
-    public void RequestPage(javafx.event.ActionEvent event) throws IOException {
-        URL url = new File("src/main/resources/Client/ClientRequestPage.fxml").toURI().toURL();
-        Parent home = FXMLLoader.load(url);
-        Scene scene = new Scene(home);
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    @FXML
-    public void handleBooks(javafx.event.ActionEvent event) throws IOException {
-        URL url = new File("src/main/resources/Client/AllBooksPage.fxml").toURI().toURL();
-        Parent home = FXMLLoader.load(url);
-        Scene scene = new Scene(home);
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
     }
 }

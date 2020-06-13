@@ -3,6 +3,7 @@ package Client.Controllers;
 import Client.ActionMode.BooksTable;
 import Manager.ActionMode.Book;
 import Manager.Services.AddJSON;
+import ParentCode.Decode;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -10,7 +11,6 @@ import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -19,13 +19,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
-import javafx.scene.image.PixelWriter;
-import javafx.scene.image.WritableImage;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javax.imageio.ImageIO;
+
 import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.io.*;
 import java.net.URL;
 import java.util.*;
@@ -34,7 +31,7 @@ import java.util.List;
 import static Client.Controllers.ControllerClient.librarySave;
 import static Manager.Services.AddJSON.books;
 
-public class ControllerBooks<libraryUser> implements Initializable {
+public class ControllerBooks extends Controller implements Initializable {
 
     @FXML
     private Button close;
@@ -63,21 +60,31 @@ public class ControllerBooks<libraryUser> implements Initializable {
     public static List<Book> listOfBooks = new ArrayList<>();
     private ObservableList<BooksTable> arrayBooks = FXCollections.observableArrayList();
 
-    @FXML
-    private void handleClose() throws IOException {
-        Stage stage = (Stage) close.getScene().getWindow();
-        stage.close();
-        URL url = new File("src/main/resources/Login/Login.fxml").toURI().toURL();
-        Parent home = FXMLLoader.load(url);
-        Scene scene = new Scene(home);
-        Stage stage1 = new Stage();
-        stage1.initStyle(StageStyle.UNDECORATED);
-        stage1.setScene(scene);
-        stage1.show();
-    }
-
     private static String libraryUser;
     public static Book bookSave;
+
+    @FXML
+    private void handleClose() throws IOException {
+        super.handleClose(close);
+    }
+
+    @FXML
+    public void LibrariesPage(javafx.event.ActionEvent event) throws IOException {
+        URL url = new File("src/main/resources/Client/ClientPage.fxml").toURI().toURL();
+        super.handle(event, url);
+    }
+
+    @FXML
+    public void RequestPage(javafx.event.ActionEvent event) throws IOException {
+        URL url = new File("src/main/resources/Client/ClientRequestPage.fxml").toURI().toURL();
+        super.handle(event, url);
+    }
+
+    @FXML
+    public void handleBooks(javafx.event.ActionEvent event) throws IOException {
+        URL url = new File("src/main/resources/Client/AllBooksPage.fxml").toURI().toURL();
+        super.handle(event, url);
+    }
 
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -118,25 +125,8 @@ public class ControllerBooks<libraryUser> implements Initializable {
         }
 
         for (Book b : listOfBooks) {
-            byte[] decodedBytes = Base64.getDecoder().decode(b.getImage().getBytes());
-            ByteArrayInputStream bis = new ByteArrayInputStream(decodedBytes);
-            BufferedImage img = null;
-            try {
-                img = ImageIO.read(bis);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            WritableImage image = null;
-            if (img != null) {
-                image = new WritableImage(img.getWidth(), img.getHeight());
-                PixelWriter pw = image.getPixelWriter();
-                for (int x = 0; x < img.getWidth(); x++) {
-                    for (int y = 0; y < img.getHeight(); y++) {
-                        pw.setArgb(x, y, img.getRGB(x, y));
-                    }
-                }
-            }
-            ImageView bookCover = new ImageView(image);
+            Decode dp = new Decode();
+            ImageView bookCover = new ImageView(dp.DecodePicture(b));
             bookCover.setFitHeight(176);
             bookCover.setFitWidth(176);
 
@@ -147,18 +137,7 @@ public class ControllerBooks<libraryUser> implements Initializable {
                 bookPDF.setText("Read Online");
                 bookPDF.setPrefSize(150, 30);
                 bookPDF.setOnAction(e -> {
-                    Desktop desktop = Desktop.getDesktop();
-                    try {
-                        byte[] pdf1 = Base64.getDecoder().decode(b.getPdf().getBytes());
-                        OutputStream fstream = new FileOutputStream("ReadOnline" + ".pdf");
-                        for (Byte p : pdf1) {
-                            fstream.write(p);
-                        }
-                        fstream.close();
-                        desktop.open(new File("ReadOnline" + ".pdf"));
-                    } catch (IOException ex) {
-                        ex.printStackTrace();
-                    }
+                   dp.DecodePdf(b);
                 });
                 arrayBooks.add(new BooksTable(bookCover, hyp, b.getAuthor(), b.getGenre(), bookPDF));
             } else {
@@ -171,16 +150,7 @@ public class ControllerBooks<libraryUser> implements Initializable {
                     bookSave = b;
                     AddJSON.persistBooks();
                     URL url = new File("src/main/resources/Client/BookDetails.fxml").toURI().toURL();
-                    FXMLLoader loader = new FXMLLoader();
-                    loader.setLocation(url);
-                    Parent home = loader.load();
-                    Scene scene = new Scene(home);
-                    ControllerBookDetails control = loader.getController();
-                    control.getDetails();
-                    Stage stage = new Stage();
-                    stage.initStyle(StageStyle.UNDECORATED);
-                    stage.setScene(scene);
-                    stage.show();
+                    super.handleAction(url);
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
@@ -210,35 +180,5 @@ public class ControllerBooks<libraryUser> implements Initializable {
             table.setItems(sortedData);
         }
         libraryUser = librarySave;
-    }
-
-    @FXML
-    public void LibrariesPage(javafx.event.ActionEvent event) throws IOException {
-        URL url = new File("src/main/resources/Client/ClientPage.fxml").toURI().toURL();
-        Parent home = FXMLLoader.load(url);
-        Scene scene = new Scene(home);
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    @FXML
-    public void RequestPage(javafx.event.ActionEvent event) throws IOException {
-        URL url = new File("src/main/resources/Client/ClientRequestPage.fxml").toURI().toURL();
-        Parent home = FXMLLoader.load(url);
-        Scene scene = new Scene(home);
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    @FXML
-    public void handleBooks(javafx.event.ActionEvent event) throws IOException {
-        URL url = new File("src/main/resources/Client/AllBooksPage.fxml").toURI().toURL();
-        Parent home = FXMLLoader.load(url);
-        Scene scene = new Scene(home);
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
     }
 }
