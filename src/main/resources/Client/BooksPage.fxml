@@ -43,13 +43,13 @@
             </Button>
          </children>
       </Pane>
-      <TableView fx:id="table" layoutX="50.0" layoutY="91.0" prefHeight="682.0" prefWidth="1312.0" style="-fx-background-color: #ffff;" stylesheets="@DarkTheme.css" AnchorPane.bottomAnchor="27.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="38.0" AnchorPane.topAnchor="91.0">
+      <TableView fx:id="table" layoutX="50.0" layoutY="91.0" prefHeight="682.0" prefWidth="1312.0" style="-fx-background-color: #ffff;" stylesheets="@TableTheme.css" AnchorPane.bottomAnchor="27.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="38.0" AnchorPane.topAnchor="91.0">
          <columns>
             <TableColumn fx:id="bookCover" prefWidth="180.0" />
-            <TableColumn fx:id="title" minWidth="0.0" prefWidth="370.0" />
-            <TableColumn fx:id="author" minWidth="0.0" prefWidth="320.0" />
-            <TableColumn fx:id="genre" minWidth="0.0" prefWidth="250.0" />
-            <TableColumn fx:id="openBook" minWidth="0.0" prefWidth="190.0" />
+            <TableColumn fx:id="title" minWidth="0.0" prefWidth="370.0" text="Title" />
+            <TableColumn fx:id="author" minWidth="0.0" prefWidth="320.0" text="Author" />
+            <TableColumn fx:id="genre" minWidth="0.0" prefWidth="250.0" text="Genre" />
+            <TableColumn fx:id="openBook" minWidth="0.0" prefWidth="159.9454345703125" />
          </columns>
          <opaqueInsets>
             <Insets />

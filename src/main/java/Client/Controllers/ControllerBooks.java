@@ -1,10 +1,8 @@
 package Client.Controllers;
 
 import Client.ActionMode.BooksTable;
-import Client.ActionMode.LibrariesTable;
 import Manager.ActionMode.Book;
 import Manager.Services.AddJSON;
-import Register.actionMode.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -17,6 +15,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
@@ -33,9 +32,7 @@ import java.util.*;
 import java.util.List;
 
 import static Client.Controllers.ControllerClient.librarySave;
-import static Client.Controllers.ControllerClient.listOfManagers;
 import static Manager.Services.AddJSON.books;
-import static Register.services.UserService.users;
 
 public class ControllerBooks<libraryUser> implements Initializable {
 
@@ -89,6 +86,8 @@ public class ControllerBooks<libraryUser> implements Initializable {
         author.setCellValueFactory(new PropertyValueFactory<BooksTable, String>("author"));
         genre.setCellValueFactory(new PropertyValueFactory<BooksTable, String>("genre"));
         openBook.setCellValueFactory(new PropertyValueFactory<BooksTable, Button>("openBook"));
+
+        table.setPlaceholder(new Label("No books in the library!"));
 
         if (books == null)
             return;
@@ -146,7 +145,7 @@ public class ControllerBooks<libraryUser> implements Initializable {
             if (b.getPdf() != null) {
                 Button bookPDF = new Button();
                 bookPDF.setText("Read Online");
-                bookPDF.setPrefSize(186, 30);
+                bookPDF.setPrefSize(150, 30);
                 bookPDF.setOnAction(e -> {
                     Desktop desktop = Desktop.getDesktop();
                     try {
