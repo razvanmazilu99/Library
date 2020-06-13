@@ -104,7 +104,6 @@ public class Book {
                 genre.equals(book.genre) &&
                 details.equals(book.details) &&
                 image.equals(book.image) &&
-                pdf.equals(book.pdf) &&
                 user.equals(book.user);
     }
 
