@@ -1,10 +1,8 @@
 package ParentCode;
 
 import Manager.ActionMode.Book;
-import javafx.scene.control.Button;
 import javafx.scene.image.PixelWriter;
 import javafx.scene.image.WritableImage;
-
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
