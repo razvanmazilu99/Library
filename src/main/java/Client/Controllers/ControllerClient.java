@@ -50,6 +50,8 @@ public class ControllerClient extends Controller implements Initializable {
         image.setCellValueFactory(new PropertyValueFactory<LibrariesTable, ImageView>("image"));
         libraryName.setCellValueFactory(new PropertyValueFactory<LibrariesTable, Hyperlink>("libraryName"));
 
+        table.setPlaceholder(new Label("No libraries added yet!"));
+
         if (users == null)
             return;
 
