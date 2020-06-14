@@ -15,17 +15,22 @@
                   <Font name="Harlow Solid Italic" size="28.0" />
                </font>
             </Label>
-            <Button layoutX="1074.0" layoutY="14.0" mnemonicParsing="false" onAction="#LibrariesPage" prefWidth="110.0" style="-fx-background-color: #655; -fx-border-width: 1.5px 1.5px 1.5px 1.5px; -fx-border-color: #ffff;" text="Libraries" textFill="WHITE">
+            <Button layoutX="936.0" layoutY="14.0" mnemonicParsing="false" onAction="#LibrariesPage" prefWidth="110.0" style="-fx-border-width: 1.5px 1.5px 1.5px 1.5px;" stylesheets="@ButtonTheme.css" text="Libraries" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <Button layoutX="1210.0" layoutY="14.0" mnemonicParsing="false" onAction="#RequestPage" prefWidth="112.0" style="-fx-background-color: #655; -fx-border-width: 1.5px 1.5px 1.5px 1.5px; -fx-border-color: #ffff;" text="My requests" textFill="WHITE">
+            <Button layoutX="1210.0" layoutY="13.0" mnemonicParsing="false" onAction="#RequestPage" prefWidth="112.0" style="-fx-border-width: 1.5px 1.5px 1.5px 1.5px;" stylesheets="@ButtonTheme.css" text="My requests" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <Button fx:id="close" layoutX="1350.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleClose" style="-fx-background-color: #655; -fx-border-width: 1.5px 1.5px 1.5px 1.5px; -fx-border-color: #ffff;" text="X" textFill="WHITE">
+            <Button fx:id="close" layoutX="1350.0" layoutY="13.0" mnemonicParsing="false" onAction="#handleClose" style="-fx-border-width: 1.5px 1.5px 1.5px 1.5px;" stylesheets="@ButtonTheme.css" text="X" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="1074.0" layoutY="13.0" mnemonicParsing="false" onAction="#handleBooks" prefWidth="110.0" style="-fx-border-width: 1.5px 1.5px 1.5px 1.5px;" stylesheets="@ButtonTheme.css" text="Books" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -36,11 +41,6 @@
                   <Image url="@lupa.png" />
                </image>
             </ImageView>
-            <Button layoutX="938.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleBooks" prefWidth="110.0" style="-fx-background-color: #655; -fx-border-width: 1.5px 1.5px 1.5px 1.5px; -fx-border-color: #ffff;" text="Books" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </Button>
          </children>
       </Pane>
       <TableView fx:id="table" layoutX="50.0" layoutY="91.0" prefHeight="682.0" prefWidth="1312.0" style="-fx-background-color: #ffff;" stylesheets="@TableTheme.css" AnchorPane.bottomAnchor="27.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="38.0" AnchorPane.topAnchor="91.0">

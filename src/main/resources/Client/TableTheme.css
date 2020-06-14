@@ -25,7 +25,7 @@
 
 .table-view {
     /*-fx-base: #655;*/
-    -fx-control-inner-background: white;
+    -fx-control-inner-background: #f6f4ef;
     -fx-background-color: white;
     -fx-background-opacity: 30%;
     -fx-table-cell-border-color: transparent;
@@ -35,6 +35,11 @@
 
 .table-view .scroll-bar {
     -fx-insets-scroll-bar-alignment: right;
+}
+
+.table-view .table-column {
+    -fx-alignment: CENTER-LEFT;
+    -fx-padding: 0.166667em; /* 2px, plus border adds 1px */
 }
 
 .table-view .column-header-background {
