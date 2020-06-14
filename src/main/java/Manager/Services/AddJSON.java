@@ -15,7 +15,6 @@ import java.nio.file.Path;
 import java.util.List;
 import java.util.Objects;
 
-
 public class AddJSON {
 
     public static List<Book> books;

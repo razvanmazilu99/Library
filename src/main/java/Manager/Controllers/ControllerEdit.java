@@ -10,7 +10,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-
 import static Login.controllers.ControllerLogin.saveUser;
 import static Manager.Controllers.ControllerManager.*;
 import static Manager.Services.AddJSON.*;

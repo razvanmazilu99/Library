@@ -1,16 +1,12 @@
 package Manager.Controllers;
 
 import Client.ActionMode.Request;
-import Client.Services.AddRequest;
 import Manager.ActionMode.RequestsT;
-import Manager.Services.AddJSON;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -20,11 +16,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-
 import java.io.*;
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import static Login.controllers.ControllerLogin.userSaveManager;
 
 public class ControllerRequest extends Controller implements Initializable {
