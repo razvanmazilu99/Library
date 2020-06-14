@@ -1,9 +1,9 @@
 package Client.Services;
 
 import Client.ActionMode.Request;
-import Client.Exceptions.CouldNotWriteRequestsException;
-import Client.Exceptions.RequestAlreadyExistsException;
-import Client.Exceptions.TenRequestsException;
+import ParentCode.Exceptions.CouldNotWriteObjectException;
+import ParentCode.Exceptions.AlreadyExistsException;
+import Client.Exception.TenRequestsException;
 import Manager.ActionMode.Book;
 import Register.actionMode.User;
 import Register.services.FileSystemService;
@@ -15,7 +15,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 import java.util.Objects;
-
 import static Client.Controllers.ControllerClient.libraryNameSave;
 
 public class AddRequest {
@@ -34,7 +33,7 @@ public class AddRequest {
         requests = objectMapper.readValue(REQUESTS_PATH.toFile(), new TypeReference<List<Request>>() { });
     }
 
-    public static void addRequest(User u, Book b) throws RequestAlreadyExistsException, TenRequestsException {
+    public static void addRequest(User u, Book b) throws AlreadyExistsException, TenRequestsException {
         checkRequestDoesNotAlreadyExist(u.getUsername(), b.getTitle(), b.getAuthor());
         checkTenRequestsExist(u.getUsername(), libraryNameSave);
         requests.add(new Request(u, b));
@@ -46,14 +45,14 @@ public class AddRequest {
             ObjectMapper objectMapper = new ObjectMapper();
             objectMapper.writerWithDefaultPrettyPrinter().writeValue(REQUESTS_PATH.toFile(), requests);
         } catch (IOException e) {
-            throw new CouldNotWriteRequestsException();
+            throw new CouldNotWriteObjectException();
         }
     }
 
-    public static void checkRequestDoesNotAlreadyExist(String username, String title, String author) throws RequestAlreadyExistsException {
+    public static void checkRequestDoesNotAlreadyExist(String username, String title, String author) throws AlreadyExistsException {
         for (Request r : requests) {
             if (Objects.equals(title, r.getTitle_book()) && Objects.equals(username, r.getUsername_user()) && Objects.equals(author, r.getAuthor_book()) && r.getStatus() == 0)
-                throw new RequestAlreadyExistsException();
+                throw new AlreadyExistsException("Request already exists!");
         }
     }
 

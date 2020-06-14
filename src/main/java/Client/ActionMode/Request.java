@@ -3,7 +3,6 @@ package Client.ActionMode;
 import Manager.ActionMode.Book;
 import Register.actionMode.User;
 import java.util.Objects;
-
 import static Client.Controllers.ControllerClient.libraryNameSave;
 
 public class Request {

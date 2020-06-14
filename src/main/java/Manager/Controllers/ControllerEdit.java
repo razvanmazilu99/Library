@@ -2,19 +2,19 @@ package Manager.Controllers;
 
 import Manager.ActionMode.Book;
 import Manager.Services.AddJSON;
-import Manager.exceptions.BookAlreadyExistsException;
+import ParentCode.Controller;
+import ParentCode.Exceptions.AlreadyExistsException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 import static Login.controllers.ControllerLogin.saveUser;
 import static Manager.Controllers.ControllerManager.*;
 import static Manager.Services.AddJSON.*;
 
-public class ControllerEdit {
+public class ControllerEdit extends Controller {
 
     @FXML
     private Button close;
@@ -39,8 +39,7 @@ public class ControllerEdit {
 
     @FXML
     private void handleClose() {
-        Stage stage = (Stage) close.getScene().getWindow();
-        stage.close();
+        super.handleCloseSimple(close);
     }
 
     public void populate(String t, String a, String g, String d) {
@@ -70,11 +69,10 @@ public class ControllerEdit {
                         b.setDetails(newBook.getDetails());
                     }
                     AddJSON.persistBooks();
-                    Stage stage = (Stage) save.getScene().getWindow();
-                    stage.close();
+                    super.handleCloseSimple(save);
                 }
             }
-        } catch (BookAlreadyExistsException e) {
+        } catch (AlreadyExistsException e) {
             bookAlreadyExist.setText(e.getMessage());
         }
     }

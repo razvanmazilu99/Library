@@ -1,18 +1,19 @@
 package Manager.Controllers;
 
 import Manager.Services.AddJSON;
+import ParentCode.Controller;
+import ParentCode.Exceptions.EmptyField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.FileChooser;
-import javafx.stage.Stage;
 import org.apache.commons.io.FileUtils;
 import java.io.File;
 import java.io.IOException;
 import java.util.Base64;
 import java.util.List;
 
-public class ControllerAdd {
+public class ControllerAdd extends Controller {
 
     @FXML
     private Button close;
@@ -46,8 +47,7 @@ public class ControllerAdd {
 
     @FXML
     private void handleClose() {
-        Stage stage = (Stage) close.getScene().getWindow();
-        stage.close();
+        super.handleCloseSimple(close);
     }
 
     @FXML
@@ -88,12 +88,11 @@ public class ControllerAdd {
                 encodedString2 = Base64.getEncoder().encodeToString(fileContent2);
             }
             AddJSON.addBook(title.getText(), author.getText(), genre.getText(), details.getText(), encodedString1, encodedString2);
-            Stage stage = (Stage) submit.getScene().getWindow();
-            stage.close();
-        } catch (Manager.exceptions.EmptyField e) {
+            super.handleCloseSimple(submit);
+        } catch (EmptyField e) {
             bookAlreadyExist.setText(null);
             empty.setText(e.getMessage());
-        } catch (Manager.exceptions.BookAlreadyExistsException e) {
+        } catch (ParentCode.Exceptions.AlreadyExistsException e) {
             empty.setText(null);
             bookAlreadyExist.setText(e.getMessage());
         }

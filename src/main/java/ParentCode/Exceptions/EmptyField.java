@@ -1,4 +1,4 @@
-package Manager.exceptions;
+package ParentCode.Exceptions;
 
 public class EmptyField extends Exception{
 
