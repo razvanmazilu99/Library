@@ -13,7 +13,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 
-public class Controller {
+public class Controller extends ParentCode.Controller {
 
     @FXML
     public void handle(javafx.event.ActionEvent event, URL url) throws IOException {
@@ -25,21 +25,21 @@ public class Controller {
     }
 
     @FXML
-    protected void handleCloseSimple(Button close) {
-        Stage stage = (Stage) close.getScene().getWindow();
-        stage.close();
+    public void LibrariesPage(javafx.event.ActionEvent event) throws IOException {
+        URL url = new File("src/main/resources/Client/ClientPage.fxml").toURI().toURL();
+        this.handle(event, url);
     }
 
     @FXML
-    protected void handleClose(Button close) throws IOException {
-        this.handleCloseSimple(close);
-        URL url = new File("src/main/resources/Login/Login.fxml").toURI().toURL();
-        Parent home = FXMLLoader.load(url);
-        Scene scene = new Scene(home);
-        Stage stage1 = new Stage();
-        stage1.initStyle(StageStyle.UNDECORATED);
-        stage1.setScene(scene);
-        stage1.show();
+    public void RequestPage(javafx.event.ActionEvent event) throws IOException {
+        URL url = new File("src/main/resources/Client/ClientRequestPage.fxml").toURI().toURL();
+        this.handle(event, url);
+    }
+
+    @FXML
+    public void handleBooks(javafx.event.ActionEvent event) throws IOException {
+        URL url = new File("src/main/resources/Client/AllBooksPage.fxml").toURI().toURL();
+        this.handle(event, url);
     }
 
     public void handleAction(URL url) throws IOException {

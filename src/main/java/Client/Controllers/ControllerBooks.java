@@ -68,24 +68,6 @@ public class ControllerBooks extends Controller implements Initializable {
         super.handleClose(close);
     }
 
-    @FXML
-    public void LibrariesPage(javafx.event.ActionEvent event) throws IOException {
-        URL url = new File("src/main/resources/Client/ClientPage.fxml").toURI().toURL();
-        super.handle(event, url);
-    }
-
-    @FXML
-    public void RequestPage(javafx.event.ActionEvent event) throws IOException {
-        URL url = new File("src/main/resources/Client/ClientRequestPage.fxml").toURI().toURL();
-        super.handle(event, url);
-    }
-
-    @FXML
-    public void handleBooks(javafx.event.ActionEvent event) throws IOException {
-        URL url = new File("src/main/resources/Client/AllBooksPage.fxml").toURI().toURL();
-        super.handle(event, url);
-    }
-
     public void initialize(URL location, ResourceBundle resources) {
 
         bookCover.setCellValueFactory(new PropertyValueFactory<BooksTable, ImageView>("bookCover"));

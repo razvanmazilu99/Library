@@ -1,7 +1,8 @@
 package Client.Controllers;
 
+import ParentCode.Controller;
 import ParentCode.Exceptions.AlreadyExistsException;
-import ParentCode.Exceptions.TenRequestsException;
+import Client.Exception.TenRequestsException;
 import Client.Services.AddRequest;
 import ParentCode.Decode;
 import javafx.fxml.FXML;
