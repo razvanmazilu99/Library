@@ -1,8 +1,9 @@
 package Login.controllers;
 
-import Login.exceptions.EmptyField;
 import Login.exceptions.IncorrectPassword;
 import Login.exceptions.UserDoesNotExistException;
+import ParentCode.Controller;
+import ParentCode.Exceptions.EmptyField;
 import Register.actionMode.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -23,7 +24,7 @@ import java.net.URL;
 import static Login.services.LoginService.verifyLogin;
 import static Register.services.UserService.users;
 
-public class ControllerLogin {
+public class ControllerLogin extends Controller {
 
     @FXML
     private Button button;
@@ -48,8 +49,7 @@ public class ControllerLogin {
 
     @FXML
     private void handleClose() {
-        Stage stage = (Stage) button.getScene().getWindow();
-        stage.close();
+        super.handleCloseSimple(button);
     }
 
     @FXML
