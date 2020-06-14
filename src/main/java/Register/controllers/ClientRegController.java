@@ -1,18 +1,14 @@
 package Register.controllers;
 
-import Register.exceptions.EmptyField;
-import Register.exceptions.UserAlreadyExistsException;
+import ParentCode.Exceptions.AlreadyExistsException;
+import ParentCode.Exceptions.EmptyField;
 import Register.services.UserService;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -62,7 +58,7 @@ public class ClientRegController extends Controller {
             UserService.addUserClient(name.getText(), surname.getText(), address.getText(), email.getText(), phoneNumber.getText(), username.getText(), password.getText());
             URL url = new File("src/main/resources/Login/Login.fxml").toURI().toURL();
             super.handle(event, url);
-        } catch (UserAlreadyExistsException e) {
+        } catch (AlreadyExistsException e) {
             empty.setText(null);
             registrationMessage.setText(e.getMessage());
         } catch (EmptyField e) {

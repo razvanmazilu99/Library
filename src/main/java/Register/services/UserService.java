@@ -1,9 +1,9 @@
 package Register.services;
 
+import ParentCode.Exceptions.AlreadyExistsException;
+import ParentCode.Exceptions.CouldNotWriteObjectException;
+import ParentCode.Exceptions.EmptyField;
 import Register.actionMode.User;
-import Register.exceptions.CouldNotWriteUsersException;
-import Register.exceptions.EmptyField;
-import Register.exceptions.UserAlreadyExistsException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.io.FileUtils;
@@ -32,24 +32,24 @@ public class UserService {
         users = objectMapperClient.readValue(USERS_PATH.toFile(), new TypeReference<List<User>>() { });
     }
 
-    public static void addUserClient(String name, String surname, String address, String email, String phoneNumber, String username, String password) throws UserAlreadyExistsException, EmptyField {
+    public static void addUserClient(String name, String surname, String address, String email, String phoneNumber, String username, String password) throws AlreadyExistsException, EmptyField {
         checkUserDoesNotAlreadyExist(username);
         checkEmptyFieldClient(name, surname, address, email, phoneNumber, username, password);
         users.add(new User(name, surname, address, email, phoneNumber, username, encodePassword(username, password)));
         persistUsers();
     }
 
-    public static void addUserManager(String libraryName, String address, String email, String phoneNumber, String username, String password) throws UserAlreadyExistsException, EmptyField {
+    public static void addUserManager(String libraryName, String address, String email, String phoneNumber, String username, String password) throws AlreadyExistsException, EmptyField {
         checkUserDoesNotAlreadyExist(username);
         checkEmptyFieldManager(libraryName, address, email, phoneNumber, username, password);
         users.add(new User(libraryName, address, email, phoneNumber, username, encodePassword(username, password)));
         persistUsers();
     }
 
-    private static void checkUserDoesNotAlreadyExist(String username) throws UserAlreadyExistsException {
+    private static void checkUserDoesNotAlreadyExist(String username) throws AlreadyExistsException {
         for (User user : users) {
             if (Objects.equals(username, user.getUsername()))
-                throw new UserAlreadyExistsException();
+                throw new AlreadyExistsException("Username already exists!");
         }
     }
 
@@ -68,7 +68,7 @@ public class UserService {
             ObjectMapper objectMapper = new ObjectMapper();
             objectMapper.writerWithDefaultPrettyPrinter().writeValue(USERS_PATH.toFile(), users);
         } catch (IOException e) {
-            throw new CouldNotWriteUsersException();
+            throw new CouldNotWriteObjectException();
         }
     }
 
