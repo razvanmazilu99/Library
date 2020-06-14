@@ -2,16 +2,16 @@ package Manager.Controllers;
 
 import Client.ActionMode.Request;
 import Client.Services.AddRequest;
-import Manager.exceptions.EmptyField;
+import ParentCode.Exceptions.EmptyField;
+import ParentCode.Controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import javafx.stage.Stage;
 
 import static Manager.Controllers.ControllerRequest.id_request;
 
-public class ControllerDecline {
+public class ControllerDecline extends Controller {
 
     @FXML
     private Button close;
@@ -27,8 +27,7 @@ public class ControllerDecline {
 
     @FXML
     private void handleClose() {
-        Stage stage = (Stage) close.getScene().getWindow();
-        stage.close();
+        super.handleCloseSimple(close);
     }
 
     @FXML
@@ -42,8 +41,7 @@ public class ControllerDecline {
                     newRequest.setDeclineMessage(declineMessage.getText());
                     newRequest.setStatus(2);
                     AddRequest.persistRequest();
-                    Stage stage = (Stage) submit.getScene().getWindow();
-                    stage.close();
+                    super.handleCloseSimple(submit);
                 }
             }
         } catch (EmptyField e) {

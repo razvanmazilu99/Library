@@ -2,21 +2,19 @@ package Manager.Controllers;
 
 import Client.ActionMode.Request;
 import Client.Services.AddRequest;
-import Manager.exceptions.BookAlreadyExistsException;
-import Manager.exceptions.EmptyField;
+import ParentCode.Exceptions.EmptyField;
 import Manager.exceptions.WrongDateException;
+import ParentCode.Controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
-import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.time.format.DateTimeFormatter;
 
 import static Manager.Controllers.ControllerRequest.id_request;
 
-public class ControllerAccept {
+public class ControllerAccept extends Controller {
 
     @FXML
     private Button close;
@@ -38,8 +36,7 @@ public class ControllerAccept {
 
     @FXML
     private void handleClose() {
-        Stage stage = (Stage) close.getScene().getWindow();
-        stage.close();
+       super.handleCloseSimple(close);
     }
 
     @FXML
@@ -57,8 +54,7 @@ public class ControllerAccept {
                     newRequest.setReturnDate(returnDate.getValue().format(formatter));
                     newRequest.setStatus(1);
                     AddRequest.persistRequest();
-                    Stage stage = (Stage) submit.getScene().getWindow();
-                    stage.close();
+                    super.handleCloseSimple(submit);
                 }
             }
         } catch (EmptyField e) {

@@ -30,7 +30,7 @@ import java.util.ResourceBundle;
 import static Login.controllers.ControllerLogin.saveUser;
 import static Manager.Services.AddJSON.books;
 
-public class ControllerViews implements Initializable {
+public class ControllerViews extends Controller implements Initializable {
 
     @FXML
     private Button close;
@@ -77,47 +77,6 @@ public class ControllerViews implements Initializable {
 
     @FXML
     private void handleClose() throws IOException {
-        Stage stage = (Stage) close.getScene().getWindow();
-        stage.close();
-        URL url = new File("src/main/resources/Login/Login.fxml").toURI().toURL();
-        Parent home = FXMLLoader.load(url);
-        Scene scene = new Scene(home);
-        Stage stage1 = new Stage();
-        stage1.initStyle(StageStyle.UNDECORATED);
-        stage1.setScene(scene);
-        stage1.show();
-    }
-
-    @FXML
-    public void BooksPage(javafx.event.ActionEvent event) throws IOException {
-        AddJSON.loadBooksFromFile();
-        URL url = new File("src/main/resources/Manager/ManagerPage.fxml").toURI().toURL();
-        Parent home = FXMLLoader.load(url);
-        Scene scene = new Scene(home);
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    @FXML
-    public void handleRequest(javafx.event.ActionEvent event) throws IOException {
-        AddRequest.loadRequestsFromFile();
-        URL url = new File("src/main/resources/Manager/RequestPage.fxml").toURI().toURL();
-        Parent home = FXMLLoader.load(url);
-        Scene scene = new Scene(home);
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    @FXML
-    public void handleViews(ActionEvent event) throws IOException {
-        AddJSON.loadBooksFromFile();
-        URL url = new File("src/main/resources/Manager/ViewsPage.fxml").toURI().toURL();
-        Parent home = FXMLLoader.load(url);
-        Scene scene = new Scene(home);
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+        super.handleClose(close);
     }
 }
