@@ -1,4 +1,4 @@
-package ParentCode.Exceptions;
+package Client.Exception;
 
 public class TenRequestsException extends Exception {
     public TenRequestsException() {

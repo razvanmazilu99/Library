@@ -3,7 +3,7 @@ package Client.Services;
 import Client.ActionMode.Request;
 import ParentCode.Exceptions.CouldNotWriteObjectException;
 import ParentCode.Exceptions.AlreadyExistsException;
-import ParentCode.Exceptions.TenRequestsException;
+import Client.Exception.TenRequestsException;
 import Manager.ActionMode.Book;
 import Register.actionMode.User;
 import Register.services.FileSystemService;
