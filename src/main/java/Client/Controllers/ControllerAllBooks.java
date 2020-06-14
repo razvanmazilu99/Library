@@ -40,6 +40,8 @@ public class ControllerAllBooks extends Controller implements Initializable {
         information.setCellValueFactory(new PropertyValueFactory<AllBooksTable, String>("information"));
         library.setCellValueFactory(new PropertyValueFactory<AllBooksTable, String>("library"));
 
+        table.setPlaceholder(new Label("No books!"));
+
         try {
             Manager.Services.AddJSON.loadBooksFromFile();
         } catch (IOException e) {

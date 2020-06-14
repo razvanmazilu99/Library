@@ -7,6 +7,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -40,6 +41,8 @@ public class ControllerClientRequest extends Controller implements Initializable
 
         information.setCellValueFactory(new PropertyValueFactory<RequestTable, String>("information"));
         status.setCellValueFactory(new PropertyValueFactory<RequestTable, String>("status"));
+
+        table.setPlaceholder(new Label("No requests!"));
 
         try {
             Client.Services.AddRequest.loadRequestsFromFile();
