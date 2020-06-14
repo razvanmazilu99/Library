@@ -1,7 +1,7 @@
 package Login.services;
-import Login.exceptions.EmptyField;
 import Login.exceptions.IncorrectPassword;
 import Login.exceptions.UserDoesNotExistException;
+import ParentCode.Exceptions.EmptyField;
 import Register.actionMode.User;
 import Register.services.FileSystemService;
 import Register.services.UserService;
@@ -12,7 +12,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
-import java.util.Objects;
 
 import static Register.services.UserService.encodePassword;
 
