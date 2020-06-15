@@ -28,7 +28,7 @@
                 <TableColumn fx:id="picture" prefWidth="100.0" />
                 <TableColumn fx:id="information" prefWidth="237.0" />
                   <TableColumn fx:id="accept" prefWidth="129.0" />
-                  <TableColumn fx:id="decline" minWidth="9.0" prefWidth="132.0" />
+                  <TableColumn fx:id="decline" minWidth="9.0" prefWidth="126.0" />
               </columns>
             </TableView>
          </children>

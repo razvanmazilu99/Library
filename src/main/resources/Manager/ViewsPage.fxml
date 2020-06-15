@@ -26,7 +26,7 @@
             <TableView fx:id="table" prefHeight="620.0" prefWidth="620.0" stylesheets="@ManagerTable.css">
               <columns>
                 <TableColumn fx:id="information" prefWidth="460.0" text="Title &amp; Author" />
-                  <TableColumn fx:id="noOfViews" prefWidth="139.1455078125" style="-fx-alignment: CENTER;" text="Views" />
+                  <TableColumn fx:id="noOfViews" prefWidth="132.0" style="-fx-alignment: CENTER;" text="Views" />
               </columns>
             </TableView>
          </children>
