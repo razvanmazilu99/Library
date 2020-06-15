@@ -52,10 +52,10 @@
             <InnerShadow />
          </effect>
       </ImageView>
-      <TableView fx:id="table" layoutX="736.0" layoutY="147.0" prefHeight="633.0" prefWidth="556.0" style="-fx-background-color: #ffff; -fx-border-color: #655;" stylesheets="@ClientTable.css" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="736.0" AnchorPane.rightAnchor="108.0" AnchorPane.topAnchor="147.0">
+      <TableView fx:id="table" layoutX="736.0" layoutY="147.0" prefHeight="600.0" prefWidth="556.0" style="-fx-background-color: #ffff; -fx-border-color: #655;" stylesheets="@ClientTable.css" AnchorPane.bottomAnchor="53.0" AnchorPane.leftAnchor="736.0" AnchorPane.rightAnchor="108.0" AnchorPane.topAnchor="147.0">
          <columns>
             <TableColumn fx:id="image" prefWidth="148.0" style="-fx-alignment: CENTER;" />
-            <TableColumn fx:id="libraryName" prefWidth="393.96356201171875" />
+            <TableColumn fx:id="libraryName" prefWidth="378.0" />
          </columns>
          <opaqueInsets>
             <Insets />

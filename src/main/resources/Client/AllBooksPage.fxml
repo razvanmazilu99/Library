@@ -20,7 +20,7 @@
       <TableView fx:id="table" layoutX="749.0" layoutY="161.0" prefHeight="600.0" prefWidth="545.0" style="-fx-background-color: #ffff; -fx-border-color: #655;" stylesheets="@ClientTable.css" AnchorPane.bottomAnchor="39.0" AnchorPane.leftAnchor="749.0" AnchorPane.rightAnchor="106.0" AnchorPane.topAnchor="161.0">
          <columns>
             <TableColumn fx:id="information" prefWidth="322.0" text="Title &amp; Author" />
-            <TableColumn fx:id="library" prefWidth="209.07275390625" text="Library" />
+            <TableColumn fx:id="library" prefWidth="193.0" text="Library" />
          </columns>
          <opaqueInsets>
             <Insets />
