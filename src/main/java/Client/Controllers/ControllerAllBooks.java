@@ -40,6 +40,8 @@ public class ControllerAllBooks extends Controller implements Initializable {
         information.setCellValueFactory(new PropertyValueFactory<AllBooksTable, String>("information"));
         library.setCellValueFactory(new PropertyValueFactory<AllBooksTable, String>("library"));
 
+        table.setPlaceholder(new Label("No books!"));
+
         try {
             Manager.Services.AddJSON.loadBooksFromFile();
         } catch (IOException e) {
@@ -58,7 +60,7 @@ public class ControllerAllBooks extends Controller implements Initializable {
             return;
 
         for (Book b : books) {
-            arrayAllBooks.add(new AllBooksTable("Title: " + b.getTitle() + '\n' + "Author: " + b.getAuthor(), "Library: " + b.getUser()));
+            arrayAllBooks.add(new AllBooksTable( b.getTitle() + '\n' + b.getAuthor(), b.getUser()));
         }
         table.setItems(arrayAllBooks);
     }

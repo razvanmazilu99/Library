@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -62,6 +63,8 @@ public class ControllerRequest extends Controller implements Initializable {
         accept.setCellValueFactory(new PropertyValueFactory<RequestsT, Button>("accept"));
         decline.setCellValueFactory(new PropertyValueFactory<RequestsT, Button>("decline"));
 
+        table.setPlaceholder(new Label("No requests!"));
+
         if (Client.Services.AddRequest.requests == null)
             return;
 
@@ -69,8 +72,8 @@ public class ControllerRequest extends Controller implements Initializable {
             if(userSaveManager != null)
                 if (r.getLibraryName_book().equals(userSaveManager.getLibraryName()) && r.getStatus() == 0) {
                     ImageView requestPic = new ImageView("Manager/requestIcon.jpg");
-                    requestPic.setFitHeight(116);
-                    requestPic.setFitWidth(116);
+                    requestPic.setFitHeight(86);
+                    requestPic.setFitWidth(96);
 
                     Button accept_button = new Button();
                     accept_button.setText("Accept");

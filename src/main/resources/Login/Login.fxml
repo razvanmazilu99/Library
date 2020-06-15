@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
@@ -15,7 +16,7 @@
                   <Insets />
                </opaqueInsets></TextField>
             <PasswordField fx:id="password" layoutX="37.0" layoutY="136.0" prefHeight="20.0" prefWidth="230.0" promptText="Password" style="-fx-border-color: #655; -fx-border-width: 0.5px 0.5 2px 0.5px;" />
-            <Button fx:id="login" layoutX="37.0" layoutY="201.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="30.0" prefWidth="230.0" style="-fx-background-color: #655;" text="Login" textFill="WHITE">
+            <Button fx:id="login" layoutX="37.0" layoutY="201.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="30.0" prefWidth="230.0" stylesheets="@ButtonTheme.css" text="Login" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
@@ -32,13 +33,16 @@
          <image>
             <Image url="@biblioteca.jpg" />
          </image>
+         <effect>
+            <DropShadow />
+         </effect>
       </ImageView>
       <Label layoutX="58.0" layoutY="392.0" prefHeight="93.0" prefWidth="406.0" text="Welcome to LibraryApp" textFill="WHITE">
          <font>
             <Font size="37.0" />
          </font>
       </Label>
-      <Button fx:id="button" cancelButton="true" layoutX="809.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#handleClose" style="-fx-background-color: #655;" text="X" textFill="WHITE">
+      <Button fx:id="button" cancelButton="true" layoutX="809.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#handleClose" stylesheets="@ButtonTheme.css" text="X" textFill="WHITE">
          <font>
             <Font name="Arial Black" size="12.0" />
          </font>

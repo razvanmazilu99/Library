@@ -2,11 +2,12 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client.Controllers.ControllerBookDetails">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="850.0" style="-fx-border-color: #655; -fx-border-width: 1.5px 1.5px 1.5px 1.5px; -fx-background-color: #f6f4ef;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client.Controllers.ControllerBookDetails">
    <children>
       <Pane prefHeight="60.0" prefWidth="850.0" style="-fx-background-color: #655;">
          <children>
@@ -15,7 +16,7 @@
                   <Font name="Harlow Solid Italic" size="32.0" />
                </font>
             </Label>
-            <Button fx:id="close" layoutX="797.0" layoutY="13.0" mnemonicParsing="false" onAction="#handleClose" style="-fx-background-color: #655; -fx-border-width: 1.5px 1.5px 1.5px 1.5px; -fx-border-color: #ffff;" text="X" textFill="WHITE">
+            <Button fx:id="close" layoutX="797.0" layoutY="13.0" mnemonicParsing="false" onAction="#handleClose" style="-fx-border-width: 1.5px 1.5px 1.5px 1.5px;" stylesheets="@ButtonTheme.css" text="X" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -31,7 +32,7 @@
             <Label fx:id="details" prefHeight="265.0" prefWidth="500.0" text="Label" />
          </children>
       </AnchorPane>
-      <Button fx:id="request" layoutX="688.0" layoutY="431.0" mnemonicParsing="false" onAction="#handleRequest" prefWidth="110.0" style="-fx-background-color: #655; -fx-border-width: 3px 3px 3px 3px; -fx-border-color: #655;" text="Add Request" textFill="WHITE" />
+      <Button fx:id="request" layoutX="688.0" layoutY="431.0" mnemonicParsing="false" onAction="#handleRequest" prefWidth="110.0" style="-fx-border-width: 2px 2px 2px 2px;" stylesheets="@ButtonTheme.css" text="Add Request" textFill="WHITE" />
       <Label fx:id="exists" layoutX="467.0" layoutY="436.0" textFill="#970a0a">
          <font>
             <Font name="System Bold" size="15.0" />
@@ -48,4 +49,11 @@
          </font>
       </Label>
    </children>
+   <effect>
+      <DropShadow height="0.0" radius="4.75">
+         <input>
+            <DropShadow height="7.99" radius="6.7475000000000005" />
+         </input>
+      </DropShadow>
+   </effect>
 </AnchorPane>

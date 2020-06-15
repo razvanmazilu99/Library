@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
@@ -11,6 +12,9 @@
          <image>
             <Image url="@biblioteca.jpg" />
          </image>
+         <effect>
+            <DropShadow />
+         </effect>
       </ImageView>
       <TextField fx:id="name" layoutX="564.0" layoutY="85.0" prefHeight="25.0" prefWidth="242.0" promptText="Name" style="-fx-border-color: #655; -fx-border-width: 0.5px 0.5px 2px 0.5;" />
       <TextField fx:id="surname" layoutX="564.0" layoutY="131.0" prefHeight="25.0" prefWidth="242.0" promptText="Surname" style="-fx-border-color: #655; -fx-border-width: 0.5px 0.5px 2px 0.5;" />
@@ -19,17 +23,17 @@
       <TextField fx:id="phoneNumber" layoutX="563.0" layoutY="270.0" prefHeight="25.0" prefWidth="242.0" promptText="Phone Number" style="-fx-border-color: #655; -fx-border-width: 0.5px 0.5px 2px 0.5;" />
       <TextField fx:id="username" layoutX="563.0" layoutY="316.0" prefHeight="25.0" prefWidth="242.0" promptText="Username" style="-fx-border-color: #655; -fx-border-width: 0.5px 0.5px 2px 0.5;" />
       <PasswordField fx:id="password" layoutX="565.0" layoutY="363.0" prefHeight="25.0" prefWidth="242.0" promptText="Password" style="-fx-border-color: #655; -fx-border-width: 0.5px 0.5px 2px 0.5;" />
-      <Button layoutX="705.0" layoutY="415.0" mnemonicParsing="false" onAction="#ClientRegister" prefHeight="31.0" prefWidth="102.0" style="-fx-background-color: #655;" text="Register" textFill="#fffdfd">
+      <Button layoutX="705.0" layoutY="415.0" mnemonicParsing="false" onAction="#ClientRegister" prefHeight="31.0" prefWidth="102.0" stylesheets="@../Login/ButtonTheme.css" text="Register" textFill="#fffdfd">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Button layoutX="563.0" layoutY="415.0" mnemonicParsing="false" onAction="#handleBack" prefHeight="31.0" prefWidth="102.0" style="-fx-background-color: #655;" text="Back" textFill="#f5f0f0">
+      <Button layoutX="563.0" layoutY="415.0" mnemonicParsing="false" onAction="#handleBack" prefHeight="31.0" prefWidth="102.0" stylesheets="@../Login/ButtonTheme.css" text="Back" textFill="#f5f0f0">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Button fx:id="close" layoutX="810.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#handleClose" style="-fx-background-color: #655;" text="X" textFill="WHITE">
+      <Button fx:id="close" layoutX="810.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#handleClose" stylesheets="@../Login/ButtonTheme.css" text="X" textFill="WHITE">
          <font>
             <Font name="Arial Black" size="12.0" />
          </font>

@@ -16,7 +16,7 @@
          <effect>
             <Lighting diffuseConstant="1.15" specularConstant="0.77" specularExponent="20.47" surfaceScale="2.55">
                <bumpInput>
-                  <InnerShadow />
+                  <InnerShadow choke="0.33" height="18.39" radius="7.395" width="13.19" />
                </bumpInput>
                <light>
                   <Light.Distant />
@@ -24,10 +24,10 @@
             </Lighting>
          </effect>
       </ImageView>
-      <TableView fx:id="table" layoutX="749.0" layoutY="161.0" prefHeight="600.0" prefWidth="545.0" style="-fx-background-color: #ffff;" AnchorPane.bottomAnchor="39.0" AnchorPane.leftAnchor="749.0" AnchorPane.rightAnchor="106.0" AnchorPane.topAnchor="161.0">
+      <TableView fx:id="table" layoutX="749.0" layoutY="161.0" prefHeight="600.0" prefWidth="545.0" style="-fx-background-color: #ffff; -fx-border-color: #655;" stylesheets="@ClientTable.css" AnchorPane.bottomAnchor="39.0" AnchorPane.leftAnchor="749.0" AnchorPane.rightAnchor="106.0" AnchorPane.topAnchor="161.0">
          <columns>
-            <TableColumn fx:id="information" prefWidth="322.0" />
-            <TableColumn fx:id="status" prefWidth="222.0" text="Status" />
+            <TableColumn fx:id="information" prefWidth="322.0" text="Title &amp; Author &amp; Library " />
+            <TableColumn fx:id="status" prefWidth="194.0" text="Status" />
          </columns>
          <opaqueInsets>
             <Insets />
@@ -45,22 +45,22 @@
                   <Font name="Harlow Solid Italic" size="28.0" />
                </font>
             </Label>
-            <Button layoutX="1071.0" layoutY="14.0" mnemonicParsing="false" onAction="#LibrariesPage" prefWidth="110.0" style="-fx-background-color: #655; -fx-border-width: 1.5px 1.5px 1.5px 1.5px; -fx-border-color: #ffff;" text="Libraries" textFill="WHITE">
+            <Button layoutX="936.0" layoutY="14.0" mnemonicParsing="false" onAction="#LibrariesPage" prefWidth="110.0" style="-fx-border-width: 1.5px 1.5px 1.5px 1.5px;" stylesheets="@ButtonTheme.css" text="Libraries" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <Button layoutX="1209.0" layoutY="14.0" mnemonicParsing="false" onAction="#RequestPage" prefWidth="112.0" style="-fx-background-color: #655; -fx-border-width: 1.5px 1.5px 1.5px 1.5px; -fx-border-color: #ffff;" text="My requests" textFill="WHITE">
+            <Button layoutX="1210.0" layoutY="13.0" mnemonicParsing="false" onAction="#RequestPage" prefWidth="112.0" style="-fx-border-width: 1.5px 1.5px 1.5px 1.5px;" stylesheets="@ButtonTheme.css" text="My requests" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <Button fx:id="close" layoutX="1350.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleClose" style="-fx-background-color: #655; -fx-border-width: 1.5px 1.5px 1.5px 1.5px; -fx-border-color: #ffff;" text="X" textFill="WHITE">
+            <Button fx:id="close" layoutX="1350.0" layoutY="13.0" mnemonicParsing="false" onAction="#handleClose" style="-fx-border-width: 1.5px 1.5px 1.5px 1.5px;" stylesheets="@ButtonTheme.css" text="X" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <Button layoutX="932.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleBooks" prefWidth="110.0" style="-fx-background-color: #655; -fx-border-width: 1.5px 1.5px 1.5px 1.5px; -fx-border-color: #ffff;" text="Books" textFill="WHITE">
+            <Button layoutX="1074.0" layoutY="13.0" mnemonicParsing="false" onAction="#handleBooks" prefWidth="110.0" style="-fx-border-width: 1.5px 1.5px 1.5px 1.5px;" stylesheets="@ButtonTheme.css" text="Books" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>

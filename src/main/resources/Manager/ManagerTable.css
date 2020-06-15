@@ -24,8 +24,7 @@
 }
 
 .table-view {
-    /*-fx-base: #655;*/
-    -fx-control-inner-background: #f6f4ef;
+    -fx-control-inner-background: white;
     -fx-background-color: white;
     -fx-background-opacity: 30%;
     -fx-table-cell-border-color: transparent;
@@ -43,13 +42,13 @@
 }
 
 .table-view .column-header-background {
-    -fx-background-color: #655;
+    -fx-background-color: #656;
 }
 
 .table-view .column-header, .table-view .filler {
     -fx-size: 35;
     -fx-border-width: 0 0 1 0;
-    -fx-background-color: #655;
+    -fx-background-color: #656;
 }
 
 .table-view .column-header .label {
@@ -69,12 +68,12 @@
     -fx-border-color: #e2e2e2;
     -fx-border-width: 2;
     -fx-background-radius: 0;
-    -fx-background-color: #655;
+    -fx-background-color: #656;
     -fx-font-family: "System", Helvetica, Arial, sans-serif;
     -fx-font-size: 11pt;
-    -fx-text-fill: #d8d8d8;
     -fx-alignment: center;
     -fx-hover-alignment: center;
+    -fx-text-fill: white;
     -fx-background-insets: 0 0 0 0, 0, 1, 2;
 }
 
@@ -83,8 +82,8 @@
 }
 
 .button:pressed, .button:default:hover:pressed {
-  -fx-background-color: white;
-  -fx-text-fill: #1d1d1d;
+  -fx-background-color: #656;
+  -fx-text-fill: white;
 }
 
 .button:focused {
@@ -96,14 +95,14 @@
 
 .button:disabled, .button:default:disabled {
     -fx-opacity: 0.4;
-    -fx-background-color: #655;
+    -fx-background-color: #656;
     -fx-text-fill: white;
     -fx-alignment: center;
 }
 
 .button:default {
     -fx-background-color: -fx-focus-color;
-    -fx-text-fill: #ffffff;
+    -fx-text-fill: white;
 }
 
 .button:default:hover {
