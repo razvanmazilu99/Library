@@ -12,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -58,6 +59,8 @@ public class ControllerManager extends Controller implements Initializable {
         editBook.setCellValueFactory(new PropertyValueFactory<BooksModelTable, Button>("editBook"));
         deleteBook.setCellValueFactory(new PropertyValueFactory<BooksModelTable, Button>("deleteBook"));
         pdf.setCellValueFactory(new PropertyValueFactory<BooksModelTable, Button>("pdf"));
+
+        table.setPlaceholder(new Label("No books in your Library!"));
 
         if (books == null)
             return;
