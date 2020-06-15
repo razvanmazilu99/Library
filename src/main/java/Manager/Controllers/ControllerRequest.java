@@ -69,8 +69,8 @@ public class ControllerRequest extends Controller implements Initializable {
             if(userSaveManager != null)
                 if (r.getLibraryName_book().equals(userSaveManager.getLibraryName()) && r.getStatus() == 0) {
                     ImageView requestPic = new ImageView("Manager/requestIcon.jpg");
-                    requestPic.setFitHeight(116);
-                    requestPic.setFitWidth(116);
+                    requestPic.setFitHeight(86);
+                    requestPic.setFitWidth(96);
 
                     Button accept_button = new Button();
                     accept_button.setText("Accept");
