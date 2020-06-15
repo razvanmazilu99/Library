@@ -25,16 +25,16 @@
             <Font name="Harlow Solid Italic" size="38.0" />
          </font>
       </Label>
-      <Label layoutX="595.0" layoutY="59.0" text="Edit book" textFill="#665555">
+      <Label layoutX="595.0" layoutY="59.0" text="Edit book">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Button fx:id="close" layoutX="816.0" layoutY="8.0" mnemonicParsing="false" onAction="#handleClose" style="-fx-background-color: #655;" text="X" textFill="WHITE">
+      <Button fx:id="close" layoutX="816.0" layoutY="8.0" mnemonicParsing="false" onAction="#handleClose" stylesheets="@../Login/ButtonTheme.css" text="X" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.218181610107422" />
          </font></Button>
-      <Button fx:id="save" layoutX="746.0" layoutY="435.0" mnemonicParsing="false" onAction="#handleSave" prefHeight="30.0" prefWidth="86.0" style="-fx-background-color: #655;" text="Save" textFill="#fffdfd">
+      <Button fx:id="save" layoutX="746.0" layoutY="435.0" mnemonicParsing="false" onAction="#handleSave" prefHeight="30.0" prefWidth="86.0" stylesheets="@../Login/ButtonTheme.css" text="Save" textFill="#fffdfd">
          <font>
             <Font size="16.0" />
          </font>

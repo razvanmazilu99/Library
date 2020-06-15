@@ -7,7 +7,7 @@
 }
 
 .button:pressed, .button:default:hover:pressed {
-  -fx-background-color: white;
+  -fx-background-color: #655;
 }
 
 .button:disabled, .button:default:disabled {

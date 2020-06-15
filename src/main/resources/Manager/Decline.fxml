@@ -15,7 +15,7 @@
             </Label>
          </children>
       </Pane>
-      <Button fx:id="close" layoutX="418.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleClose" style="-fx-background-color: #656;" text="X" textFill="WHITE">
+      <Button fx:id="close" layoutX="418.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleClose" stylesheets="@../Register/ButtonThemeManager.css" text="X" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -25,7 +25,7 @@
             <Font name="System Italic" size="16.0" />
          </font>
       </Label>
-      <Button fx:id="submit" layoutX="340.0" layoutY="386.0" mnemonicParsing="false" onAction="#handleDecline" prefHeight="31.0" prefWidth="102.0" style="-fx-background-color: #656;" text="Submit" textFill="WHITE">
+      <Button fx:id="submit" layoutX="340.0" layoutY="386.0" mnemonicParsing="false" onAction="#handleDecline" prefHeight="31.0" prefWidth="102.0" stylesheets="@../Register/ButtonThemeManager.css" text="Submit" textFill="WHITE">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
