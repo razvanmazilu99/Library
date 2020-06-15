@@ -55,7 +55,7 @@ public class ControllerClientRequest extends Controller implements Initializable
 
         for (Request r : Client.Services.AddRequest.requests) {
             if (r.getUsername_user().equals(saveUser)) {
-                arrayRequests.add(new RequestTable(r.getTitle_book() + '\n' + r.getAuthor_book(), r.getStatus() == 0 ? "No status!" : (r.getStatus() == 1 ? "Accepted\nPick up date: " + r.getPickUpDate() + "\nReturn date: " + r.getReturnDate() : "Declined\n" + r.getDeclineMessage())));
+                arrayRequests.add(new RequestTable(r.getTitle_book() + '\n' + r.getAuthor_book() + '\n' + r.getLibraryName_book(), r.getStatus() == 0 ? "NO STATUS!" : (r.getStatus() == 1 ? "ACCEPTED\n\nPick up date: " + r.getPickUpDate() + "\nReturn date: " + r.getReturnDate() : "DECLINED\n\n" + r.getDeclineMessage())));
             }
             table.setItems(arrayRequests);
         }
