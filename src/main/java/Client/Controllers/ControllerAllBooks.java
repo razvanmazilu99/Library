@@ -2,6 +2,7 @@ package Client.Controllers;
 
 import Client.ActionMode.AllBooksTable;
 import Manager.ActionMode.Book;
+import Manager.ActionMode.ViewsTable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -35,6 +36,18 @@ public class ControllerAllBooks extends Controller implements Initializable {
         super.handleClose(close);
     }
 
+    public void sorting(List<Book> abt) {
+
+        Book aux;
+        for(int i = 0; i < abt.size(); i++)
+            for(int j = i+1; j < abt.size(); j++)
+                if(abt.get(i).getNoViews() <  abt.get(j).getNoViews()) {
+                    aux = abt.get(i);
+                    abt.set(i, abt.get(j));
+                    abt.set(j, aux);
+                }
+    }
+
     public void initialize(URL location, ResourceBundle resources) {
 
         information.setCellValueFactory(new PropertyValueFactory<AllBooksTable, String>("information"));
@@ -48,19 +61,14 @@ public class ControllerAllBooks extends Controller implements Initializable {
             e.printStackTrace();
         }
 
-        if (books.size() > 0) {
-            Collections.sort(books, new Comparator<Book>() {
-                public int compare(final Book object1, final Book object2) {
-                    return object1.getTitle().compareTo(object2.getTitle());
-                }
-            });
-        }
-
         if (books == null)
             return;
 
+        sorting(books);
+
         for (Book b : books) {
-            arrayAllBooks.add(new AllBooksTable( b.getTitle() + '\n' + b.getAuthor(), b.getUser()));
+            arrayAllBooks.add(new AllBooksTable( b.getTitle() + '\n' + b.getAuthor(), b.getUser() + "\nViews: " + b.getNoViews()));
+            System.out.println(b.getNoViews());
         }
         table.setItems(arrayAllBooks);
     }
