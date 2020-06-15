@@ -60,7 +60,7 @@ public class ControllerAllBooks extends Controller implements Initializable {
             return;
 
         for (Book b : books) {
-            arrayAllBooks.add(new AllBooksTable("Title: " + b.getTitle() + '\n' + "Author: " + b.getAuthor(), b.getUser()));
+            arrayAllBooks.add(new AllBooksTable( b.getTitle() + '\n' + b.getAuthor(), b.getUser()));
         }
         table.setItems(arrayAllBooks);
     }
