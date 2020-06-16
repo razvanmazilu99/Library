@@ -1,6 +1,5 @@
 import Login.services.LoginService;
 import Manager.Services.AddJSON;
-import Register.services.UserService;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -17,7 +16,6 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        UserService.loadUsersFromFile();
         LoginService.loadUsersFromFile();
         AddJSON.loadBooksFromFile();
 

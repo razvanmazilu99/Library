@@ -57,6 +57,7 @@ public class ClientRegController extends Controller {
             UserService.addUserClient(name.getText(), surname.getText(), address.getText(), email.getText(), phoneNumber.getText(), username.getText(), password.getText());
             URL url = new File("src/main/resources/Login/Login.fxml").toURI().toURL();
             super.handle(event, url);
+            UserService.loadUsersFromFile();
         } catch (AlreadyExistsException e) {
             empty.setText(null);
             registrationMessage.setText(e.getMessage());

@@ -3,34 +3,16 @@ package Register.services;
 import ParentCode.Exceptions.AlreadyExistsException;
 import ParentCode.Exceptions.CouldNotWriteObjectException;
 import ParentCode.Exceptions.EmptyField;
+import ParentCode.Service;
 import Register.actionMode.User;
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.apache.commons.io.FileUtils;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.List;
 import java.util.Objects;
 
-public class UserService {
-
-    public static List<User> users;
-    public static final Path USERS_PATH = FileSystemService.getPathToFile("config", "users.json");
-
-    public static void loadUsersFromFile() throws IOException {
-
-        if (!Files.exists(USERS_PATH)) {
-            FileUtils.copyURLToFile(UserService.class.getClassLoader().getResource("Register/users.json"), USERS_PATH.toFile());
-        }
-
-        ObjectMapper objectMapperClient = new ObjectMapper();
-
-        users = objectMapperClient.readValue(USERS_PATH.toFile(), new TypeReference<List<User>>() { });
-    }
+public class UserService extends Service {
 
     public static void addUserClient(String name, String surname, String address, String email, String phoneNumber, String username, String password) throws AlreadyExistsException, EmptyField {
         checkUserDoesNotAlreadyExist(username);
