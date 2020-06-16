@@ -62,61 +62,69 @@ public class ControllerManager extends Controller implements Initializable {
 
         table.setPlaceholder(new Label("No books in your Library!"));
 
+        refreshTable();
+    }
+
+    public void refreshTable() {
+
+        arrayBook.clear();
+
         if (books == null)
             return;
 
         for (Book b : books) {
             if (b.getUser().equals(saveUser)) {
-                    Decode dp = new Decode();
-                    ImageView bookCover = new ImageView(dp.DecodePicture(b));
-                    bookCover.setFitHeight(150);
-                    bookCover.setFitWidth(150);
-                    Button edit = new Button();
-                    edit.setText("Edit book");
-                    edit.setPrefSize(140, 30);
-                    edit.setOnAction(e -> {
-                        try {
-                            URL url = new File("src/main/resources/Manager/EditBookPage.fxml").toURI().toURL();
-                            FXMLLoader loader = new FXMLLoader();
-                            loader.setLocation(url);
-                            Parent home = loader.load();
-                            Scene scene = new Scene(home);
-                            ControllerEdit ce =  loader.getController();
-                            ce.populate(b.getTitle(), b.getAuthor(), b.getGenre(), b.getDetails());
-                            id = books.indexOf(b);
-                            Stage stage = new Stage();
-                            stage.initStyle(StageStyle.UNDECORATED);
-                            stage.setScene(scene);
-                            stage.show();
-                        } catch (IOException ex) {
-                            ex.printStackTrace();
-                        }
-                    });
-
-                    Button delete = new Button();
-                    delete.setText("Delete Book");
-                    delete.setPrefSize(140, 30);
-                    delete.setOnAction(e -> {
-                        books.remove(b);
-                        AddJSON.persistBooks();
-                    });
-
-                    if(b.getPdf() != null) {
-                        Button bookPDF = new Button();
-                        bookPDF.setText("Read Online");
-                        bookPDF.setPrefSize(140, 30);
-                        bookPDF.setOnAction(e -> {
-                            dp.DecodePdf(b);
-                        });
-                        arrayBook.add(new BooksModelTable(bookCover, b, edit, delete, bookPDF));
+                Decode dp = new Decode();
+                ImageView bookCover = new ImageView(dp.DecodePicture(b));
+                bookCover.setFitHeight(150);
+                bookCover.setFitWidth(150);
+                Button edit = new Button();
+                edit.setText("Edit book");
+                edit.setPrefSize(140, 30);
+                edit.setOnAction(e -> {
+                    try {
+                        URL url = new File("src/main/resources/Manager/EditBookPage.fxml").toURI().toURL();
+                        FXMLLoader loader = new FXMLLoader();
+                        loader.setLocation(url);
+                        Parent home = loader.load();
+                        Scene scene = new Scene(home);
+                        ControllerEdit ce =  loader.getController();
+                        ce.populate(b.getTitle(), b.getAuthor(), b.getGenre(), b.getDetails());
+                        id = books.indexOf(b);
+                        Stage stage = new Stage();
+                        stage.initStyle(StageStyle.UNDECORATED);
+                        stage.setScene(scene);
+                        stage.show();
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
                     }
-                    else {
-                        arrayBook.add(new BooksModelTable(bookCover, b, edit, delete));
-                    }
+                });
+
+                Button delete = new Button();
+                delete.setText("Delete Book");
+                delete.setPrefSize(140, 30);
+                delete.setOnAction(e -> {
+                    books.remove(b);
+                    AddJSON.persistBooks();
+                    refreshTable();
+                });
+
+                if(b.getPdf() != null) {
+                    Button bookPDF = new Button();
+                    bookPDF.setText("Read Online");
+                    bookPDF.setPrefSize(140, 30);
+                    bookPDF.setOnAction(e -> {
+                        dp.DecodePdf(b);
+                    });
+                    arrayBook.add(new BooksModelTable(bookCover, b, edit, delete, bookPDF));
                 }
-                table.setItems(arrayBook);
+                else {
+                    arrayBook.add(new BooksModelTable(bookCover, b, edit, delete));
+                }
             }
+            table.setItems(arrayBook);
         }
+    }
 
     @FXML
     private void handleClose() throws IOException {
