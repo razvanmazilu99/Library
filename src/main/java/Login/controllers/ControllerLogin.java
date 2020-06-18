@@ -65,6 +65,8 @@ public class ControllerLogin extends Controller {
     public static User userSave;
     public static User userSaveManager;
 
+    public static Stage save;
+
     @FXML
     public void handleButtonAction(ActionEvent event) throws IOException {
 
@@ -90,6 +92,8 @@ public class ControllerLogin extends Controller {
             stage1.initStyle(StageStyle.UNDECORATED);
             stage1.setScene(scene);
             stage1.show();
+
+            save = stage1;
 
         } catch (EmptyField e) {
             usernotexist.setText(null);
