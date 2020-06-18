@@ -1,27 +1,18 @@
 package Manager.Controllers;
 
 import Manager.Services.AddJSON;
-import ParentCode.Controller;
 import ParentCode.Exceptions.EmptyField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.FileChooser;
-import javafx.stage.Stage;
 import org.apache.commons.io.FileUtils;
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 import java.util.Base64;
 import java.util.List;
 
-import static Login.controllers.ControllerLogin.save;
-
-public class ControllerAdd extends Controller {
+public class ControllerAdd extends ControllerRefresh {
 
     @FXML
     private Button close;
@@ -80,8 +71,6 @@ public class ControllerAdd extends Controller {
         }
     }
 
-    public static Stage save1;
-
     @FXML
     private void handleSubmit(ActionEvent event) throws IOException {
 
@@ -99,15 +88,7 @@ public class ControllerAdd extends Controller {
             }
             AddJSON.addBook(title.getText(), author.getText(), genre.getText(), details.getText(), encodedString1, encodedString2);
             super.handleCloseSimple(submit);
-            URL url = new File("src/main/resources/Manager/ManagerPage.fxml").toURI().toURL();
-            Parent home = FXMLLoader.load(url);
-            Scene scene = new Scene(home);
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(scene);
-            stage.show();
-            save1 = stage;
-            save.close();
-            save = save1;
+            super.refreshPage(event);
         } catch (EmptyField e) {
             bookAlreadyExist.setText(null);
             empty.setText(e.getMessage());

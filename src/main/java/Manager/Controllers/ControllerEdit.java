@@ -2,7 +2,6 @@ package Manager.Controllers;
 
 import Manager.ActionMode.Book;
 import Manager.Services.AddJSON;
-import ParentCode.Controller;
 import ParentCode.Exceptions.AlreadyExistsException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,11 +9,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import java.io.IOException;
 import static Login.controllers.ControllerLogin.saveUser;
 import static Manager.Controllers.ControllerManager.*;
 import static Manager.Services.AddJSON.*;
 
-public class ControllerEdit extends Controller {
+public class ControllerEdit extends ControllerRefresh {
 
     @FXML
     private Button close;
@@ -50,7 +50,7 @@ public class ControllerEdit extends Controller {
     }
 
     @FXML
-    private void handleSave(ActionEvent event) {
+    private void handleSave(ActionEvent event) throws IOException {
         try {
             checkBookDoesNotAlreadyExist1(title.getText(), author.getText(), saveUser, id);
             for(Book b : books) {
@@ -70,6 +70,7 @@ public class ControllerEdit extends Controller {
                     }
                     AddJSON.persistBooks();
                     super.handleCloseSimple(save);
+                    super.refreshPage(event);
                 }
             }
         } catch (AlreadyExistsException e) {

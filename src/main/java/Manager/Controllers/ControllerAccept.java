@@ -4,15 +4,16 @@ import Client.ActionMode.Request;
 import Client.Services.AddRequest;
 import ParentCode.Exceptions.EmptyField;
 import Manager.exceptions.WrongDateException;
-import ParentCode.Controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+
+import java.io.IOException;
 import java.time.format.DateTimeFormatter;
 import static Manager.Controllers.ControllerRequest.id_request;
 
-public class ControllerAccept extends Controller {
+public class ControllerAccept extends ControllerRefresh {
 
     @FXML
     private Button close;
@@ -38,7 +39,7 @@ public class ControllerAccept extends Controller {
     }
 
     @FXML
-    private void handleAccept() {
+    private void handleAccept(javafx.event.ActionEvent event) throws IOException {
         try {
             if (pickUpDate.getValue() == null || returnDate.getValue() == null)
                 throw new EmptyField();
@@ -53,6 +54,7 @@ public class ControllerAccept extends Controller {
                     newRequest.setStatus(1);
                     AddRequest.persistRequest();
                     super.handleCloseSimple(submit);
+                    super.refreshRequest(event);
                 }
             }
         } catch (EmptyField e) {
