@@ -8,7 +8,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
-
 import java.io.IOException;
 import java.time.format.DateTimeFormatter;
 import static Manager.Controllers.ControllerRequest.id_request;

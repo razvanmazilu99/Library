@@ -1,5 +1,7 @@
 package Manager.Controllers;
 
+import Client.ActionMode.Request;
+import Client.Services.AddRequest;
 import Manager.ActionMode.Book;
 import Manager.ActionMode.BooksModelTable;
 import Manager.Services.AddJSON;
@@ -23,6 +25,7 @@ import java.io.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 import static Login.controllers.ControllerLogin.saveUser;
+import static Login.controllers.ControllerLogin.userSaveManager;
 import static Manager.Services.AddJSON.books;
 
 public class ControllerManager extends Controller implements Initializable {
@@ -105,6 +108,13 @@ public class ControllerManager extends Controller implements Initializable {
                 delete.setPrefSize(140, 30);
                 delete.setOnAction(e -> {
                     books.remove(b);
+                    for(Request r : AddRequest.requests)
+                        if(b.getTitle().equals(r.getTitle_book()) && b.getAuthor().equals(r.getAuthor_book()) && b.getUser().equals(userSaveManager.getUsername())) {
+                            Request newRequest = r;
+                            newRequest.setDeclineMessage("Book does not exist in the library anymore!");
+                            newRequest.setStatus(2);
+                            AddRequest.persistRequest();
+                        }
                     AddJSON.persistBooks();
                     refreshTable();
                 });
