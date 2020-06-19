@@ -1,12 +1,19 @@
 package ParentCode;
 
 import Manager.ActionMode.Book;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.image.PixelWriter;
 import javafx.scene.image.WritableImage;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
+import java.net.URL;
 import java.util.Base64;
 
 
@@ -36,10 +43,13 @@ public class Decode {
         return image;
     }
 
-    public void DecodePdf(Book b) {
+    public void DecodePdf(Book b, URL url) throws IOException {
 
         Desktop desktop = Desktop.getDesktop();
+        boolean isFileUnlocked = false;
         try {
+            org.apache.commons.io.FileUtils.touch(new File("ReadOnline" + ".pdf"));
+            isFileUnlocked = true;
             byte[] pdf1 = Base64.getDecoder().decode(b.getPdf().getBytes());
             OutputStream fstream = new FileOutputStream("ReadOnline" + ".pdf");
             for (Byte p : pdf1) {
@@ -47,8 +57,14 @@ public class Decode {
             }
             fstream.close();
             desktop.open(new File("ReadOnline" + ".pdf"));
-        } catch (IOException ex) {
-            ex.printStackTrace();
+        } catch (IOException e) {
+            Parent home = FXMLLoader.load(url);
+            Scene scene = new Scene(home);
+            Stage stage1 = new Stage();
+            stage1.initStyle(StageStyle.UNDECORATED);
+            stage1.setScene(scene);
+            stage1.show();
+            isFileUnlocked = false;
         }
     }
 }

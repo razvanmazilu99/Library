@@ -1,7 +1,6 @@
 package Manager.Controllers;
 
 import Manager.Services.AddJSON;
-import ParentCode.Controller;
 import ParentCode.Exceptions.EmptyField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,7 +12,7 @@ import java.io.IOException;
 import java.util.Base64;
 import java.util.List;
 
-public class ControllerAdd extends Controller {
+public class ControllerAdd extends ControllerRefresh {
 
     @FXML
     private Button close;
@@ -89,6 +88,7 @@ public class ControllerAdd extends Controller {
             }
             AddJSON.addBook(title.getText(), author.getText(), genre.getText(), details.getText(), encodedString1, encodedString2);
             super.handleCloseSimple(submit);
+            super.refreshPage(event);
         } catch (EmptyField e) {
             bookAlreadyExist.setText(null);
             empty.setText(e.getMessage());

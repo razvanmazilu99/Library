@@ -44,5 +44,10 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
+      <Label fx:id="empty" layoutX="595.0" layoutY="444.0" textFill="#970a0a">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

@@ -3,15 +3,14 @@ package Manager.Controllers;
 import Client.ActionMode.Request;
 import Client.Services.AddRequest;
 import ParentCode.Exceptions.EmptyField;
-import ParentCode.Controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-
+import java.io.IOException;
 import static Manager.Controllers.ControllerRequest.id_request;
 
-public class ControllerDecline extends Controller {
+public class ControllerDecline extends ControllerRefresh {
 
     @FXML
     private Button close;
@@ -31,7 +30,7 @@ public class ControllerDecline extends Controller {
     }
 
     @FXML
-    private void handleDecline() {
+    private void handleDecline(javafx.event.ActionEvent event) throws IOException {
         try {
             if (declineMessage.getText().equals(""))
                 throw new EmptyField();
@@ -42,6 +41,7 @@ public class ControllerDecline extends Controller {
                     newRequest.setStatus(2);
                     AddRequest.persistRequest();
                     super.handleCloseSimple(submit);
+                    super.refreshRequest(event);
                 }
             }
         } catch (EmptyField e) {

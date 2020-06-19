@@ -15,6 +15,8 @@ import java.net.URL;
 
 public class Controller extends ParentCode.Controller {
 
+    public static Stage saveR;
+
     @FXML
     public void handle(javafx.event.ActionEvent event, URL url) throws IOException {
         Parent home = FXMLLoader.load(url);
@@ -22,6 +24,7 @@ public class Controller extends ParentCode.Controller {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
+        saveR = stage;
     }
 
     @FXML

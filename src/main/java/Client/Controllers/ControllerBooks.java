@@ -111,7 +111,12 @@ public class ControllerBooks extends Controller implements Initializable {
                 bookPDF.setText("Read Online");
                 bookPDF.setPrefSize(150, 30);
                 bookPDF.setOnAction(e -> {
-                   dp.DecodePdf(b);
+                    try {
+                        URL url = new File("src/main/resources/Client/PdfError.fxml").toURI().toURL();
+                        dp.DecodePdf(b, url);
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
                 });
                 arrayBooks.add(new BooksTable(bookCover, hyp, b.getAuthor(), b.getGenre(), bookPDF));
             } else {

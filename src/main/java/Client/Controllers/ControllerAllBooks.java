@@ -2,7 +2,6 @@ package Client.Controllers;
 
 import Client.ActionMode.AllBooksTable;
 import Manager.ActionMode.Book;
-import Manager.ActionMode.ViewsTable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -55,12 +54,6 @@ public class ControllerAllBooks extends Controller implements Initializable {
 
         table.setPlaceholder(new Label("No books!"));
 
-        try {
-            Manager.Services.AddJSON.loadBooksFromFile();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
         if (books == null)
             return;
 
@@ -68,7 +61,6 @@ public class ControllerAllBooks extends Controller implements Initializable {
 
         for (Book b : books) {
             arrayAllBooks.add(new AllBooksTable( b.getTitle() + '\n' + b.getAuthor(), b.getUser() + "\nViews: " + b.getNoViews()));
-            System.out.println(b.getNoViews());
         }
         table.setItems(arrayAllBooks);
     }
