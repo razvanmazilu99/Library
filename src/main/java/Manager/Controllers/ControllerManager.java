@@ -125,7 +125,12 @@ public class ControllerManager extends Controller implements Initializable {
                     bookPDF.setText("Read Online");
                     bookPDF.setPrefSize(140, 30);
                     bookPDF.setOnAction(e -> {
-                        dp.DecodePdf(b);
+                        try {
+                            URL url = new File("src/main/resources/Manager/PdfError.fxml").toURI().toURL();
+                            dp.DecodePdf(b, url);
+                        } catch (IOException ex) {
+                            ex.printStackTrace();
+                        }
                     });
                     arrayBook.add(new BooksModelTable(bookCover, b, edit, delete, bookPDF));
                 }
