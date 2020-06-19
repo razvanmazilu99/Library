@@ -54,12 +54,6 @@ public class ControllerAllBooks extends Controller implements Initializable {
 
         table.setPlaceholder(new Label("No books!"));
 
-        try {
-            Manager.Services.AddJSON.loadBooksFromFile();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
         if (books == null)
             return;
 
