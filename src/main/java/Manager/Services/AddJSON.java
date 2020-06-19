@@ -53,6 +53,11 @@ public class AddJSON {
             throw new EmptyField();
     }
 
+    public static void checkEmptyField1(String title, String author, String genre, String details) throws EmptyField {
+        if (title.equals("") || author.equals("") || genre.equals("") || details.equals(""))
+            throw new EmptyField();
+    }
+
     public static void checkBookDoesNotAlreadyExist(String title, String author, String username) throws AlreadyExistsException {
         for (Book b : books) {
             if (Objects.equals(title, b.getTitle()) && Objects.equals(author, b.getAuthor()) && Objects.equals(username, b.getUser()))
