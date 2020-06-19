@@ -79,7 +79,7 @@ public class ControllerManager extends Controller implements Initializable {
             if (b.getUser().equals(saveUser)) {
                 Decode dp = new Decode();
                 ImageView bookCover = new ImageView(dp.DecodePicture(b));
-                bookCover.setFitHeight(150);
+                bookCover.setFitHeight(190);
                 bookCover.setFitWidth(150);
                 Button edit = new Button();
                 edit.setText("Edit book");

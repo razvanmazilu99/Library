@@ -23,7 +23,7 @@
             </Button>
          </children>
       </Pane>
-      <ImageView fx:id="bookCover" fitHeight="180.0" fitWidth="180.0" layoutX="56.0" layoutY="106.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="bookCover" fitHeight="260.0" fitWidth="220.0" layoutX="56.0" layoutY="106.0" pickOnBounds="true" preserveRatio="true">
          <viewport>
             <Rectangle2D />
          </viewport></ImageView>

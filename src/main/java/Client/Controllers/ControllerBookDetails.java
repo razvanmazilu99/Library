@@ -62,8 +62,8 @@ public class ControllerBookDetails extends Controller {
         Decode dp = new Decode();
 
         bookCover.setImage(dp.DecodePicture(bookSave));
-        bookCover.setFitHeight(180);
-        bookCover.setFitWidth(180);
+        bookCover.setFitHeight(220);
+        bookCover.setFitWidth(260);
 
         details.setText("Title: " + bookSave.getTitle() + "\n\nAuthor: " + bookSave.getAuthor() + "\n\nGenre: " + bookSave.getGenre() + "\n\nDetails: " + bookSave.getDetails() + '\n');
     }

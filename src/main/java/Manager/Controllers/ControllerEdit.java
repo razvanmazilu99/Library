@@ -84,7 +84,8 @@ public class ControllerEdit extends ControllerRefresh {
                     if (!b.getDetails().equals(newBook.getDetails())) {
                         b.setDetails(newBook.getDetails());
                     }
-                    AddRequest.persistRequest();
+                    if(AddRequest.requests != null)
+                        AddRequest.persistRequest();
                     AddJSON.persistBooks();
                     super.handleCloseSimple(save);
                     super.refreshPage(event);
