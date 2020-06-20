@@ -5,25 +5,16 @@ import Client.Services.AddRequest;
 import Manager.ActionMode.Book;
 import ParentCode.Decode;
 import Register.actionMode.User;
-import Register.controllers.ManagerRegController;
 import Register.services.FileSystemService;
-import Register.services.UserService;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
-import javafx.scene.image.WritableImage;
 import org.apache.commons.io.FileUtils;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.testfx.framework.junit.ApplicationTest;
-
 import java.io.IOException;
-
 import static Client.Controllers.ControllerBooks.bookSave;
-import static Login.controllers.ControllerLogin.saveUser;
 import static Login.controllers.ControllerLogin.userSave;
 import static org.junit.Assert.*;
 

@@ -2,11 +2,6 @@ package ClientTest;
 
 import Client.Controllers.ControllerAllBooks;
 import Manager.ActionMode.Book;
-import Register.services.FileSystemService;
-import Register.services.UserService;
-import org.apache.commons.io.FileUtils;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;

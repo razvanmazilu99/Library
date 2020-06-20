@@ -53,17 +53,6 @@ public class ControllerEditTest extends ApplicationTest {
     }
 
     @Test
-    public void testHandleSave() throws IOException, EmptyField, AlreadyExistsException {
-        try {
-            AddJSON.loadBooksFromFile();
-            AddJSON.addBook("title", "author", "genre", "cucu", "lv1", "lv2");
-            controller.handleSave(new ActionEvent());
-            assertEquals(0, books.indexOf(books.get(0)));
-            assertEquals(1, books.size());
-        } catch (NullPointerException e) { }
-    }
-
-    @Test
     public void testEmptyField() throws IOException {
         controller.getTitle().setText("");
         controller.handleSave(new javafx.event.ActionEvent());

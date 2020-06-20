@@ -23,12 +23,12 @@ import static org.junit.Assert.*;
 
 public class ControllerAcceptTest extends ApplicationTest {
 
-        public static final String PICK_UP_DATE = "pickUpDate";
-        public static final String RETURN_DATE = "ReturnDate";
-        private ControllerAccept controller;
+    public static final String PICK_UP_DATE = "pickUpDate";
+    public static final String RETURN_DATE = "ReturnDate";
+    private ControllerAccept controller;
 
-        @BeforeClass
-        public static void setupClass() throws Exception {
+    @BeforeClass
+    public static void setupClass() throws Exception {
         FileSystemService.APPLICATION_FOLDER = ".testLibrariesAppRegister";
         FileSystemService.initApplicationHomeDirIfNeeded();
         AddRequest.loadRequestsFromFile();
