@@ -1,3 +1,5 @@
+package ParentTest;
+
 import ParentCode.Exceptions.AlreadyExistsException;
 import org.junit.Test;
 import static org.junit.Assert.*;

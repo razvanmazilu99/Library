@@ -1,4 +1,6 @@
-import Register.controllers.ManagerRegController;
+package RegisterTest;
+
+import Register.controllers.ClientRegController;
 import Register.services.FileSystemService;
 import Register.services.UserService;
 import javafx.scene.control.Button;
@@ -10,20 +12,21 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.testfx.framework.junit.ApplicationTest;
-import static org.junit.Assert.*;
 import java.io.IOException;
 import static ParentCode.Service.users;
+import static org.junit.Assert.*;
 
-public class ManagerRegControllerTest extends ApplicationTest {
+public class ClientRegControllerTest extends ApplicationTest {
 
     public static final String TEST_USER = "testUser";
     public static final String TEST_PASSWORD = "testPassword";
-    public static final String TEST_LIBRARY_NAME = "testLibraryName";
+    public static final String TEST_NAME = "testName";
+    public static final String TEST_SURNAME = "testSurname";
     public static final String TEST_ADDRESS = "testAddress";
     public static final String TEST_EMAIL = "testEmail";
     public static final String TEST_PHONE_NUMBER = "testPhoneNumber";
 
-    private ManagerRegController controller;
+    private ClientRegController controller;
 
     @BeforeClass
     public static void setupClass() throws Exception {
@@ -37,8 +40,9 @@ public class ManagerRegControllerTest extends ApplicationTest {
         FileUtils.cleanDirectory(FileSystemService.getApplicationHomePath().toFile());
         UserService.loadUsersFromFile();
 
-        controller = new ManagerRegController();
-        controller.setLibraryName(new TextField());
+        controller = new ClientRegController();
+        controller.setName(new TextField());
+        controller.setSurname(new TextField());
         controller.setAddress(new TextField());
         controller.setEmail(new TextField());
         controller.setPhoneNumber(new TextField());
@@ -50,7 +54,8 @@ public class ManagerRegControllerTest extends ApplicationTest {
 
         controller.getPassword().setText(TEST_PASSWORD);
         controller.getUsername().setText(TEST_USER);
-        controller.getLibraryName().setText(TEST_LIBRARY_NAME);
+        controller.getName().setText(TEST_NAME);
+        controller.getSurname().setText(TEST_SURNAME);
         controller.getAddress().setText(TEST_ADDRESS);
         controller.getEmail().setText(TEST_EMAIL);
         controller.getPhoneNumber().setText(TEST_PHONE_NUMBER);
@@ -60,26 +65,27 @@ public class ManagerRegControllerTest extends ApplicationTest {
     @Test
     public void testAddUser() throws IOException {
         try {
-            controller.ManagerRegister(new javafx.event.ActionEvent());
+            controller.ClientRegister(new javafx.event.ActionEvent());
             assertEquals(1, users.size());
-        } catch (ClassCastException e) {}
+        } catch (ClassCastException e) { }
     }
 
     @Test
     public void testAddSameUserTwice() throws IOException {
         try {
-            controller.ManagerRegister(new javafx.event.ActionEvent());
-            controller.ManagerRegister(new javafx.event.ActionEvent());
+            controller.ClientRegister(new javafx.event.ActionEvent());
+            controller.ClientRegister(new javafx.event.ActionEvent());
             assertEquals("Username already exists!", controller.getRegistrationMessage().getText());
-        } catch (ClassCastException e) {}
+        } catch (ClassCastException e) { }
     }
 
     @Test
     public void testEmptyField() throws IOException {
-        controller.getLibraryName().setText("");
+        controller.getPassword().setText("");
         try {
-            controller.ManagerRegister(new javafx.event.ActionEvent());
+            controller.ClientRegister(new javafx.event.ActionEvent());
             assertEquals("Empty field!", controller.getEmpty().getText());
-        } catch (ClassCastException e) {}
+        } catch (ClassCastException e) { }
     }
+
 }

@@ -1,3 +1,5 @@
+package RegisterTest;
+
 import ParentCode.Exceptions.AlreadyExistsException;
 import ParentCode.Exceptions.EmptyField;
 import Register.actionMode.User;

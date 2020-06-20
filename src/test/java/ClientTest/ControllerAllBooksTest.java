@@ -1,3 +1,5 @@
+package ClientTest;
+
 import Client.Controllers.ControllerAllBooks;
 import Manager.ActionMode.Book;
 import Register.services.FileSystemService;

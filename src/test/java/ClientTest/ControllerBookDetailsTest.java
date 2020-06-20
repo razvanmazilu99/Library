@@ -1,3 +1,5 @@
+package ClientTest;
+
 import Client.Controllers.ControllerBookDetails;
 import Client.Services.AddRequest;
 import Manager.ActionMode.Book;

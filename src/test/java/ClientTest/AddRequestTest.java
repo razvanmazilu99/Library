@@ -1,3 +1,5 @@
+package ClientTest;
+
 import Client.ActionMode.Request;
 import Client.Exception.TenRequestsException;
 import Client.Services.AddRequest;
