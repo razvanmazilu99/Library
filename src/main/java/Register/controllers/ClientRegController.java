@@ -66,4 +66,84 @@ public class ClientRegController extends Controller {
             empty.setText(e.getMessage());
         }
     }
+
+    public TextField getName() {
+        return name;
+    }
+
+    public void setName(TextField name) {
+        this.name = name;
+    }
+
+    public TextField getSurname() {
+        return surname;
+    }
+
+    public void setSurname(TextField surname) {
+        this.surname = surname;
+    }
+
+    public TextField getAddress() {
+        return address;
+    }
+
+    public void setAddress(TextField address) {
+        this.address = address;
+    }
+
+    public TextField getEmail() {
+        return email;
+    }
+
+    public void setEmail(TextField email) {
+        this.email = email;
+    }
+
+    public TextField getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(TextField phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public TextField getUsername() {
+        return username;
+    }
+
+    public void setUsername(TextField username) {
+        this.username = username;
+    }
+
+    public PasswordField getPassword() {
+        return password;
+    }
+
+    public void setPassword(PasswordField password) {
+        this.password = password;
+    }
+
+    public Button getClose() {
+        return close;
+    }
+
+    public void setClose(Button close) {
+        this.close = close;
+    }
+
+    public Label getRegistrationMessage() {
+        return registrationMessage;
+    }
+
+    public void setRegistrationMessage(Label registrationMessage) {
+        this.registrationMessage = registrationMessage;
+    }
+
+    public Label getEmpty() {
+        return empty;
+    }
+
+    public void setEmpty(Label empty) {
+        this.empty = empty;
+    }
 }

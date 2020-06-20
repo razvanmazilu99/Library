@@ -28,7 +28,7 @@ public class UserService extends Service {
         persistUsers();
     }
 
-    private static void checkUserDoesNotAlreadyExist(String username) throws AlreadyExistsException {
+    public static void checkUserDoesNotAlreadyExist(String username) throws AlreadyExistsException {
         for (User user : users) {
             if (Objects.equals(username, user.getUsername()))
                 throw new AlreadyExistsException("Username already exists!");
