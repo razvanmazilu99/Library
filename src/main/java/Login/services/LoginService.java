@@ -17,7 +17,7 @@ public class LoginService extends Service {
         checkPassword(username, password);
     }
 
-    private static void checkUserDoesNotExist(String username) throws UserDoesNotExistException {
+    public static void checkUserDoesNotExist(String username) throws UserDoesNotExistException {
 
         int count = 1;
 
@@ -30,7 +30,7 @@ public class LoginService extends Service {
             throw new UserDoesNotExistException();
     }
 
-    private static void checkPassword(String username, String password) throws IncorrectPassword {
+    public static void checkPassword(String username, String password) throws IncorrectPassword {
         int count = 1;
 
         for (User user : users) {

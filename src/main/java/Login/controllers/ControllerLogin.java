@@ -88,7 +88,7 @@ public class ControllerLogin extends Controller {
             Stage stage = (Stage) login.getScene().getWindow();
             stage.close();
             Scene scene = new Scene(home);
-            Stage stage1 = new Stage(); // = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Stage stage1 = new Stage();
             stage1.initStyle(StageStyle.UNDECORATED);
             stage1.setScene(scene);
             stage1.show();
@@ -108,5 +108,61 @@ public class ControllerLogin extends Controller {
             empty.setText(null);
             incorrectpass.setText(e.getMessage());
         }
+    }
+
+    public Button getButton() {
+        return button;
+    }
+
+    public void setButton(Button button) {
+        this.button = button;
+    }
+
+    public Label getUsernotexist() {
+        return usernotexist;
+    }
+
+    public void setUsernotexist(Label usernotexist) {
+        this.usernotexist = usernotexist;
+    }
+
+    public Label getIncorrectpass() {
+        return incorrectpass;
+    }
+
+    public void setIncorrectpass(Label incorrectpass) {
+        this.incorrectpass = incorrectpass;
+    }
+
+    public Label getEmpty() {
+        return empty;
+    }
+
+    public void setEmpty(Label empty) {
+        this.empty = empty;
+    }
+
+    public TextField getUsername() {
+        return username;
+    }
+
+    public void setUsername(TextField username) {
+        this.username = username;
+    }
+
+    public PasswordField getPassword() {
+        return password;
+    }
+
+    public void setPassword(PasswordField password) {
+        this.password = password;
+    }
+
+    public Button getLogin() {
+        return login;
+    }
+
+    public void setLogin(Button login) {
+        this.login = login;
     }
 }
