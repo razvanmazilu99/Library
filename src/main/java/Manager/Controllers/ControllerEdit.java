@@ -57,7 +57,7 @@ public class ControllerEdit extends ControllerRefresh {
     }
 
     @FXML
-    private void handleSave(ActionEvent event) throws IOException {
+    public void handleSave(ActionEvent event) throws IOException {
         try {
             checkBookDoesNotAlreadyExist1(title.getText(), author.getText(), saveUser, id);
             checkEmptyField1(title.getText(), author.getText(), genre.getText(), details.getText());
@@ -84,7 +84,8 @@ public class ControllerEdit extends ControllerRefresh {
                     if (!b.getDetails().equals(newBook.getDetails())) {
                         b.setDetails(newBook.getDetails());
                     }
-                    AddRequest.persistRequest();
+                    if(AddRequest.requests != null)
+                        AddRequest.persistRequest();
                     AddJSON.persistBooks();
                     super.handleCloseSimple(save);
                     super.refreshPage(event);
@@ -97,5 +98,61 @@ public class ControllerEdit extends ControllerRefresh {
             bookAlreadyExist.setText(null);
             empty.setText(e.getMessage());
         }
+    }
+
+    public Label getBookAlreadyExist() {
+        return bookAlreadyExist;
+    }
+
+    public void setBookAlreadyExist(Label bookAlreadyExist) {
+        this.bookAlreadyExist = bookAlreadyExist;
+    }
+
+    public Label getEmpty() {
+        return empty;
+    }
+
+    public void setEmpty(Label empty) {
+        this.empty = empty;
+    }
+
+    public TextField getTitle() {
+        return title;
+    }
+
+    public void setTitle(TextField title) {
+        this.title = title;
+    }
+
+    public TextField getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(TextField author) {
+        this.author = author;
+    }
+
+    public TextField getGenre() {
+        return genre;
+    }
+
+    public void setGenre(TextField genre) {
+        this.genre = genre;
+    }
+
+    public TextArea getDetails() {
+        return details;
+    }
+
+    public void setDetails(TextArea details) {
+        this.details = details;
+    }
+
+    public Button getSave() {
+        return save;
+    }
+
+    public void setSave(Button save) {
+        this.save = save;
     }
 }

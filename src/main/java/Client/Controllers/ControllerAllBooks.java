@@ -2,6 +2,7 @@ package Client.Controllers;
 
 import Client.ActionMode.AllBooksTable;
 import Manager.ActionMode.Book;
+import Register.actionMode.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -13,6 +14,7 @@ import java.io.*;
 import java.net.URL;
 import java.util.*;
 import static Manager.Services.AddJSON.books;
+import static ParentCode.Service.users;
 
 public class ControllerAllBooks extends Controller implements Initializable {
 
@@ -60,7 +62,9 @@ public class ControllerAllBooks extends Controller implements Initializable {
         sorting(books);
 
         for (Book b : books) {
-            arrayAllBooks.add(new AllBooksTable( b.getTitle() + '\n' + b.getAuthor(), b.getUser() + "\nViews: " + b.getNoViews()));
+            for(User u : users)
+                if(u.getLibraryName() != null && u.getUsername().equals(b.getUser()))
+                    arrayAllBooks.add(new AllBooksTable( b.getTitle() + '\n' + b.getAuthor(),  u.getLibraryName() + "\nViews: " + b.getNoViews()));
         }
         table.setItems(arrayAllBooks);
     }

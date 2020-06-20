@@ -101,7 +101,7 @@ public class ControllerBooks extends Controller implements Initializable {
         for (Book b : listOfBooks) {
             Decode dp = new Decode();
             ImageView bookCover = new ImageView(dp.DecodePicture(b));
-            bookCover.setFitHeight(176);
+            bookCover.setFitHeight(220);
             bookCover.setFitWidth(176);
 
             Hyperlink hyp = new Hyperlink(b.getTitle());

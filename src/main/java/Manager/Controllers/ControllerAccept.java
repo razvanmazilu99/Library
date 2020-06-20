@@ -38,7 +38,7 @@ public class ControllerAccept extends ControllerRefresh {
     }
 
     @FXML
-    private void handleAccept(javafx.event.ActionEvent event) throws IOException {
+    public void handleAccept(javafx.event.ActionEvent event) throws IOException {
         try {
             if (pickUpDate.getValue() == null || returnDate.getValue() == null)
                 throw new EmptyField();
@@ -63,5 +63,37 @@ public class ControllerAccept extends ControllerRefresh {
             empty.setText(null);
             message.setText(e.getMessage());
         }
+    }
+
+    public DatePicker getPickUpDate() {
+        return pickUpDate;
+    }
+
+    public void setPickUpDate(DatePicker pickUpDate) {
+        this.pickUpDate = pickUpDate;
+    }
+
+    public DatePicker getReturnDate() {
+        return returnDate;
+    }
+
+    public void setReturnDate(DatePicker returnDate) {
+        this.returnDate = returnDate;
+    }
+
+    public Label getMessage() {
+        return message;
+    }
+
+    public void setMessage(Label message) {
+        this.message = message;
+    }
+
+    public Label getEmpty() {
+        return empty;
+    }
+
+    public void setEmpty(Label empty) {
+        this.empty = empty;
     }
 }

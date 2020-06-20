@@ -43,6 +43,8 @@ public class Decode {
         return image;
     }
 
+    public static byte[] testPdf;
+
     public void DecodePdf(Book b, URL url) throws IOException {
 
         Desktop desktop = Desktop.getDesktop();
@@ -51,6 +53,7 @@ public class Decode {
             org.apache.commons.io.FileUtils.touch(new File("ReadOnline" + ".pdf"));
             isFileUnlocked = true;
             byte[] pdf1 = Base64.getDecoder().decode(b.getPdf().getBytes());
+            testPdf = pdf1;
             OutputStream fstream = new FileOutputStream("ReadOnline" + ".pdf");
             for (Byte p : pdf1) {
                 fstream.write(p);
