@@ -72,7 +72,7 @@ public class ControllerAdd extends ControllerRefresh {
     }
 
     @FXML
-    private void handleSubmit(ActionEvent event) throws IOException {
+    public void handleSubmit(ActionEvent event) throws IOException {
 
         String encodedString1 = null, encodedString2 = null;
         try {
@@ -97,6 +97,70 @@ public class ControllerAdd extends ControllerRefresh {
             bookAlreadyExist.setText(e.getMessage());
         }
 
+    }
+
+    public TextField getTitle() {
+        return title;
+    }
+
+    public void setTitle(TextField title) {
+        this.title = title;
+    }
+
+    public TextField getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(TextField author) {
+        this.author = author;
+    }
+
+    public TextField getGenre() {
+        return genre;
+    }
+
+    public void setGenre(TextField genre) {
+        this.genre = genre;
+    }
+
+    public TextArea getDetails() {
+        return details;
+    }
+
+    public void setDetails(TextArea details) {
+        this.details = details;
+    }
+
+    public Label getEmpty() {
+        return empty;
+    }
+
+    public void setEmpty(Label empty) {
+        this.empty = empty;
+    }
+
+    public Label getBookAlreadyExist() {
+        return bookAlreadyExist;
+    }
+
+    public void setBookAlreadyExist(Label bookAlreadyExist) {
+        this.bookAlreadyExist = bookAlreadyExist;
+    }
+
+    public ListView getListView() {
+        return listView;
+    }
+
+    public void setListView(ListView listView) {
+        this.listView = listView;
+    }
+
+    public ListView getListView1() {
+        return listView1;
+    }
+
+    public void setListView1(ListView listView1) {
+        this.listView1 = listView1;
     }
 }
 

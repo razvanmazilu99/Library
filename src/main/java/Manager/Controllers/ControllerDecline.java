@@ -30,7 +30,7 @@ public class ControllerDecline extends ControllerRefresh {
     }
 
     @FXML
-    private void handleDecline(javafx.event.ActionEvent event) throws IOException {
+    public void handleDecline(javafx.event.ActionEvent event) throws IOException {
         try {
             if (declineMessage.getText().equals(""))
                 throw new EmptyField();
@@ -47,5 +47,21 @@ public class ControllerDecline extends ControllerRefresh {
         } catch (EmptyField e) {
             empty.setText(e.getMessage());
         }
+    }
+
+    public TextArea getDeclineMessage() {
+        return declineMessage;
+    }
+
+    public void setDeclineMessage(TextArea declineMessage) {
+        this.declineMessage = declineMessage;
+    }
+
+    public Label getEmpty() {
+        return empty;
+    }
+
+    public void setEmpty(Label empty) {
+        this.empty = empty;
     }
 }
